@@ -1,0 +1,35 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.relational.ai + https://github.com/RelationalAI/rai-agent-skills
+notes: >-
+  Cross-cutting semantics for the RelationalAI platform. RelationalAI is not a
+  conventional REST API: developers model and query semantic graphs with the
+  PyRel (`relationalai`) SDK, which compiles to the Logical Query Protocol (LQP,
+  a protobuf wire format) and executes against the RelationalAI Native App
+  inside Snowflake. There is no documented HTTP idempotency-key, cursor
+  pagination, or webhook convention — those concepts do not apply to the
+  SDK/query model.
+authentication:
+  style: snowflake-connection
+  detail: See authentication/relationalai-authentication.yml (Snowflake RBAC, rai_developer role).
+query_model:
+  interface: PyRel (relationalai Python SDK)
+  wire_protocol: Logical Query Protocol (LQP) v1 — protobuf
+  proto: grpc/relationalai-lqp-transactions.proto
+  execution: RelationalAI Native App engines running in Snowflake
+idempotency:
+  supported: false
+  detail: No documented idempotency-key header/param; query execution is via the SDK transaction model, not idempotent HTTP writes.
+pagination:
+  style: not-applicable
+  detail: Results are returned as query relations/dataframes via the SDK, not paged HTTP collections.
+versioning:
+  style: semver
+  detail: See lifecycle/relationalai-lifecycle.yml.
+error_model:
+  style: sdk-exceptions
+  detail: Errors surface as SDK exceptions / engine diagnostics rather than an RFC 9457 HTTP envelope.
+cross_links:
+  authentication: authentication/relationalai-authentication.yml
+  lifecycle: lifecycle/relationalai-lifecycle.yml
+  grpc: grpc/relationalai-lqp-transactions.proto

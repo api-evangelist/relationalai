@@ -1,0 +1,28 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/RelationalAI/rai-cli + https://docs.relational.ai/api/cli
+binary: rai
+language: go
+license: Apache-2.0
+repo: https://github.com/RelationalAI/rai-cli
+docs: https://docs.relational.ai/api/cli
+install:
+- method: go
+  command: go install github.com/RelationalAI/rai-cli@latest
+- method: source
+  command: git clone https://github.com/RelationalAI/rai-cli && make
+notes: >-
+  The `rai` command-line interface administers RelationalAI resources against
+  the Snowflake-hosted platform. It authenticates through the same Snowflake
+  connection profile used by the SDKs. The docs render the authoritative,
+  version-pinned command list (CLIIndex, v1.21) — command groups cover engine
+  management, database/transaction operations, imports, and configuration.
+command_groups:
+- name: engines
+  purpose: Create, list, and manage compute engines.
+- name: databases
+  purpose: Manage RelationalAI databases and models.
+- name: transactions
+  purpose: Execute and inspect queries/transactions.
+- name: config
+  purpose: Manage the local connection profile and credentials.

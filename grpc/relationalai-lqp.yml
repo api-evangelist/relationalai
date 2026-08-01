@@ -1,0 +1,16 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/RelationalAI/logical-query-protocol
+notes: >-
+  The Logical Query Protocol (LQP) is RelationalAI's protobuf wire format for
+  query representation, with generated SDK bindings for Python, Go, and Julia
+  and a native S-expression parser/pretty-printer. The three proto3 files below
+  are saved verbatim from proto/relationalai/lqp/v1/ (package relationalai.lqp.v1).
+package: relationalai.lqp.v1
+files:
+- file: grpc/relationalai-lqp-fragments.proto
+  source: https://raw.githubusercontent.com/RelationalAI/logical-query-protocol/main/proto/relationalai/lqp/v1/fragments.proto
+- file: grpc/relationalai-lqp-logic.proto
+  source: https://raw.githubusercontent.com/RelationalAI/logical-query-protocol/main/proto/relationalai/lqp/v1/logic.proto
+- file: grpc/relationalai-lqp-transactions.proto
+  source: https://raw.githubusercontent.com/RelationalAI/logical-query-protocol/main/proto/relationalai/lqp/v1/transactions.proto

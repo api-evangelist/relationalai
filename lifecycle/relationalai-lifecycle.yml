@@ -1,0 +1,20 @@
+generated: '2026-07-21'
+method: searched
+source: PyPI + https://docs.relational.ai (release notes) + https://github.com/RelationalAI/logical-query-protocol
+notes: >-
+  RelationalAI ships the PyRel `relationalai` SDK on a SemVer train (current
+  1.22.0, 2026-07-20) and versions the Logical Query Protocol (LQP) at v1. The
+  docs carry a Release Notes section. No public dedicated status page
+  (status.relational.ai does not resolve); platform availability tracks
+  Snowflake. No formal deprecation-policy / Sunset-header contract is published.
+versioning:
+  scheme: semver
+  sdk_current: 1.22.0
+  protocol: LQP v1 (relationalai.lqp.v1)
+  release_notes: https://docs.relational.ai
+deprecation:
+  policy_url: null
+  sunset_header: false
+status_page: null
+sla:
+  url: null

@@ -1,0 +1,24 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.relational.ai/build/setup + https://github.com/RelationalAI/rai-agent-skills
+notes: >-
+  RelationalAI runs as a Native App inside Snowflake. There is no standalone
+  REST/OAuth token surface — authentication is delegated to Snowflake. The
+  PyRel (`relationalai`) SDK and the `rai` CLI connect using a Snowflake
+  connection profile (account, user, and Snowflake auth: key-pair, SSO/SAML,
+  or username-password), and platform access is governed by Snowflake roles.
+summary:
+  types: [snowflake-connection]
+  delegated_to: snowflake
+  roles: [rai_developer]
+schemes:
+- name: SnowflakeConnection
+  type: platform
+  mechanism: Snowflake connection profile (key-pair / SSO / password)
+  granted_via: Snowflake RBAC roles (e.g. rai_developer)
+  sources:
+  - https://docs.relational.ai/build/setup
+  notes: >-
+    Configured via the SDK/CLI connection profile; the RelationalAI Native App
+    must be installed in the Snowflake account and the calling user granted the
+    appropriate RelationalAI role.

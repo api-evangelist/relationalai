@@ -1,0 +1,22 @@
+generated: '2026-07-21'
+method: searched
+source: live probes of /.well-known/ on relational.ai + docs.relational.ai
+notes: >-
+  No /.well-known/ discovery documents are published. RelationalAI runs as a
+  Snowflake Native App; authentication and identity are delegated to Snowflake,
+  so there is no provider-hosted OIDC/OAuth metadata or security.txt.
+hosts:
+- host: https://relational.ai
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://docs.relational.ai
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}

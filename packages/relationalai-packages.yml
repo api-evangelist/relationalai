@@ -1,0 +1,53 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/RelationalAI + PyPI + npm
+notes: >-
+  RelationalAI's primary developer surface is PyRel, the `relationalai` Python
+  SDK (published to PyPI), which builds and queries semantic models against the
+  RelationalAI Native App running inside Snowflake. Lower-level, per-language
+  HTTP SDKs (rai-sdk-*) and the `rai` Go CLI are published from the RelationalAI
+  GitHub org.
+packages:
+- language: python
+  registry: pypi
+  name: relationalai
+  url: https://pypi.org/project/relationalai/
+  install: pip install relationalai
+  official: true
+  primary: true
+  notes: PyRel — the primary RelationalAI Python SDK (semantic modeling + reasoning).
+- language: python
+  registry: github
+  name: rai-sdk-python
+  url: https://github.com/RelationalAI/rai-sdk-python
+  install: git clone https://github.com/RelationalAI/rai-sdk-python
+  official: true
+  notes: Lower-level RelationalAI HTTP SDK for Python.
+- language: javascript
+  registry: npm
+  name: "@relationalai/rai-sdk-javascript"
+  url: https://www.npmjs.com/package/@relationalai/rai-sdk-javascript
+  install: npm install @relationalai/rai-sdk-javascript
+  official: true
+  notes: RelationalAI SDK for JavaScript/TypeScript.
+- language: julia
+  registry: github
+  name: rai-sdk-julia
+  url: https://github.com/RelationalAI/rai-sdk-julia
+  install: Pkg.add(url="https://github.com/RelationalAI/rai-sdk-julia")
+  official: true
+  notes: RelationalAI SDK for Julia.
+- language: java
+  registry: github
+  name: rai-sdk-java
+  url: https://github.com/RelationalAI/rai-sdk-java
+  install: See repo build instructions
+  official: true
+  notes: RelationalAI SDK for Java.
+- language: go
+  registry: github
+  name: rai-cli
+  url: https://github.com/RelationalAI/rai-cli
+  install: go install github.com/RelationalAI/rai-cli@latest
+  official: true
+  notes: The `rai` command-line interface (Go, Apache-2.0). Command surface catalogued in cli/.

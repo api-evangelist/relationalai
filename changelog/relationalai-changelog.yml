@@ -1,0 +1,22 @@
+generated: '2026-07-21'
+method: searched
+source: https://pypi.org/project/relationalai/ + https://docs.relational.ai
+notes: >-
+  RelationalAI publishes dated release notes in its docs and versions the PyRel
+  `relationalai` SDK on PyPI using SemVer. The docs Release Notes section is the
+  authoritative dated changelog; the entries below capture the recent PyPI
+  release window for the primary SDK.
+scheme: semver
+current_version: 1.22.0
+docs: https://docs.relational.ai
+entries:
+- version: 1.22.0
+  date: '2026-07-20'
+  breaking: false
+  highlights:
+  - Latest PyRel Python SDK release on PyPI.
+- version: 1.20.1
+  date: '2026-07'
+  breaking: false
+  highlights:
+  - Minimum SDK version required by the rai-agent-skills agent-integration package.

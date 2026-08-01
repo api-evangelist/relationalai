@@ -1,0 +1,70 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/RelationalAI/rai-agent-skills
+notes: >-
+  RelationalAI PUBLISHES its own set of Agent Skills (Apache-2.0) in the
+  rai-agent-skills repository — markdown skills coding agents load at runtime to
+  drive the decision-intelligence workflow against the `relationalai` (PyRel)
+  Python SDK. Installable into 45+ agents (Claude Code, Cursor, Copilot, Codex,
+  Cortex Code). Prerequisites: relationalai v1.20.1+, the RelationalAI Native
+  App installed in Snowflake, and the rai_developer role. These are the
+  provider's own published skills, referenced verbatim by source URL rather than
+  regenerated.
+repo: https://github.com/RelationalAI/rai-agent-skills
+api: python:relationalai
+skills:
+- file: skills/rai-setup
+  name: rai-setup
+  area: setup
+  purpose: Configuration, Snowflake connection, and engine management.
+  source: https://github.com/RelationalAI/rai-agent-skills/tree/main/skills/rai-setup
+- file: skills/rai-pyrel
+  name: rai-pyrel
+  area: development
+  purpose: PyRel v1 syntax, data loading, and query construction.
+  source: https://github.com/RelationalAI/rai-agent-skills/tree/main/skills/rai-pyrel
+- file: skills/rai-ontology
+  name: rai-ontology
+  area: ontology
+  purpose: Build and evolve domain models from data.
+  source: https://github.com/RelationalAI/rai-agent-skills/tree/main/skills/rai-ontology
+- file: skills/rai-discovery
+  name: rai-discovery
+  area: reasoning
+  purpose: Surface answerable questions and classify by reasoner type.
+  source: https://github.com/RelationalAI/rai-agent-skills/tree/main/skills/rai-discovery
+- file: skills/rai-graph-analysis
+  name: rai-graph-analysis
+  area: reasoning
+  purpose: Centrality, community detection, and reachability algorithms.
+  source: https://github.com/RelationalAI/rai-agent-skills/tree/main/skills/rai-graph-analysis
+- file: skills/rai-predictive-modeling
+  name: rai-predictive-modeling
+  area: reasoning
+  purpose: Graph neural network (GNN) model construction.
+  source: https://github.com/RelationalAI/rai-agent-skills/tree/main/skills/rai-predictive-modeling
+- file: skills/rai-predictive-training
+  name: rai-predictive-training
+  area: reasoning
+  purpose: Train GNNs, generate predictions, and evaluate results.
+  source: https://github.com/RelationalAI/rai-agent-skills/tree/main/skills/rai-predictive-training
+- file: skills/rai-prescriptive-problem
+  name: rai-prescriptive-problem
+  area: reasoning
+  purpose: Formulate optimization and constraint-satisfaction (CSAT) problems.
+  source: https://github.com/RelationalAI/rai-agent-skills/tree/main/skills/rai-prescriptive-problem
+- file: skills/rai-prescriptive-results
+  name: rai-prescriptive-results
+  area: reasoning
+  purpose: Execute solves, interpret output, and run sensitivity analysis.
+  source: https://github.com/RelationalAI/rai-agent-skills/tree/main/skills/rai-prescriptive-results
+- file: skills/rai-deployment
+  name: rai-deployment
+  area: operations
+  purpose: Production deployment to Snowflake and lifecycle management.
+  source: https://github.com/RelationalAI/rai-agent-skills/tree/main/skills/rai-deployment
+- file: skills/rai-health
+  name: rai-health
+  area: operations
+  purpose: Diagnose engine performance and data-stream health.
+  source: https://github.com/RelationalAI/rai-agent-skills/tree/main/skills/rai-health

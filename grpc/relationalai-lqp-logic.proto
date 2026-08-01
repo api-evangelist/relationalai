@@ -1,0 +1,507 @@
+syntax = "proto3";
+
+option go_package = "github.com/RelationalAI/logical-query-protocol/sdks/go/src/lqp/v1";
+
+package relationalai.lqp.v1;
+
+message Declaration {
+  oneof declaration_type {
+    Def def = 1;
+    Algorithm algorithm = 2;
+    Constraint constraint = 3;
+    Data data = 4;
+  }
+}
+
+message Def {
+  RelationId name = 1;
+  Abstraction body = 2;
+  repeated Attribute attrs = 3;
+}
+
+message Constraint {
+  RelationId name = 2;
+  oneof constraint_type {
+    FunctionalDependency functional_dependency = 1;
+  }
+}
+
+message FunctionalDependency {
+  Abstraction guard = 1;
+  repeated Var keys = 2;
+  repeated Var values = 3;
+}
+
+message Algorithm {
+  repeated RelationId global = 1;
+  Script body = 2;
+  repeated Attribute attrs = 3;
+}
+
+message Script {
+  repeated Construct constructs = 1;
+}
+
+message Construct {
+  oneof construct_type {
+    Loop loop = 1;
+    Instruction instruction = 2;
+  }
+}
+
+message Loop {
+  repeated Instruction init = 1;
+  Script body = 2;
+  repeated Attribute attrs = 3;
+}
+
+message Instruction {
+  reserved 4; // Copy rule
+  oneof instr_type {
+    Assign assign = 1; // Work like Defs, but only within a loop
+    Upsert upsert = 2; // In-place update of relation by another by swapping
+    Break break = 3; // Nullary relation that exits the loop when fired
+    MonoidDef monoid_def = 5; // In-place update of relation by another by a monoid operation
+    MonusDef monus_def = 6; // In-place update of relation by another by "subtraction" operation, if it exists
+  }
+}
+
+message Assign {
+  RelationId name = 1;
+  Abstraction body = 2;
+  repeated Attribute attrs = 3;
+}
+
+message Upsert {
+  RelationId name = 1;
+  Abstraction body = 2;
+  repeated Attribute attrs = 3;
+  int64 value_arity = 4; // dictates how to partition tuples into key-values pairs
+}
+
+message Break {
+  RelationId name = 1;
+  Abstraction body = 2;
+  repeated Attribute attrs = 3;
+}
+
+message MonoidDef {
+  Monoid monoid = 1;
+  RelationId name = 2;
+  Abstraction body = 3;
+  repeated Attribute attrs = 4;
+  int64 value_arity = 5; // dictates how to partition tuples into key-values pairs
+}
+
+message MonusDef {
+  Monoid monoid = 1;
+  RelationId name = 2;
+  Abstraction body = 3;
+  repeated Attribute attrs = 4;
+  int64 value_arity = 5; // dictates how to partition tuples into key-values pairs
+}
+
+message Monoid {
+  oneof value {
+    OrMonoid or_monoid = 1;
+    MinMonoid min_monoid = 2;
+    MaxMonoid max_monoid = 3;
+    SumMonoid sum_monoid = 4;
+  }
+}
+
+message OrMonoid {} // Only over Booleans
+
+message MinMonoid { // Parametrized by a type T
+  Type type = 1;
+}
+
+message MaxMonoid { // Parametrized by a type T
+  Type type = 1;
+}
+
+message SumMonoid { // Parametrized by a type T
+  Type type = 1;
+}
+
+
+message Binding {
+  Var var = 1;
+  Type type = 2;
+}
+
+// Abstraction and related types
+message Abstraction {
+  repeated Binding vars = 1;
+  Formula value = 2;
+}
+
+// Formula variants
+message Formula {
+  oneof formula_type {
+    Exists exists = 1;
+    Reduce reduce = 2;
+    Conjunction conjunction = 3;
+    Disjunction disjunction = 4;
+    Not not = 5;
+    FFI ffi = 6;
+    Atom atom = 7;
+    Pragma pragma = 8;
+    Primitive primitive = 9;
+    RelAtom rel_atom = 10;
+    Cast cast = 11;
+  }
+}
+
+message Exists {
+  Abstraction body = 3;
+}
+
+message Reduce {
+  Abstraction op = 1;
+  Abstraction body = 2;
+  repeated Term terms = 3;
+}
+
+message Conjunction {
+  repeated Formula args = 1;
+}
+
+message Disjunction {
+  repeated Formula args = 1;
+}
+
+message Not {
+  Formula arg = 1;
+}
+
+message FFI {
+  string name = 1;
+  repeated Abstraction args = 2;
+  repeated Term terms = 3;
+}
+
+message Atom {
+  RelationId name = 1;
+  repeated Term terms = 2;
+}
+
+message Pragma {
+  string name = 1;
+  repeated Term terms = 2;
+}
+
+message Primitive {
+  string name = 1;
+  repeated RelTerm terms = 2;
+}
+
+message RelAtom {
+  string name = 3;
+  repeated RelTerm terms = 2;
+}
+
+message Cast {
+  Term input = 2;
+  Term result = 3;
+}
+
+message RelTerm {
+  oneof rel_term_type {
+    Value specialized_value = 1;
+    Term term = 2;
+  }
+}
+
+message Term {
+  oneof term_type {
+    Var var = 1;
+    Value constant = 2;
+  }
+}
+
+message Var {
+  string name = 1;
+}
+
+message Attribute {
+  string name = 1;
+  repeated Value args = 2;
+}
+
+//
+// Input data (base relations, CSVs, Iceberg)
+//
+message Data {
+  oneof data_type {
+    EDB edb = 1;
+    BeTreeRelation betree_relation = 2;
+    CSVData csv_data = 3;
+    IcebergData iceberg_data = 4;
+  }
+}
+
+message EDB {
+  RelationId target_id = 1;
+  repeated string path = 2;
+  repeated Type types = 3;
+}
+
+message BeTreeRelation {
+  RelationId name = 1;
+  BeTreeInfo relation_info = 2;
+}
+
+message BeTreeInfo {
+  reserved 3; // potentially needed for relation_identifier
+  repeated Type key_types = 1;
+  repeated Type value_types = 2;
+  BeTreeConfig storage_config = 4;
+  BeTreeLocator relation_locator = 5;
+}
+
+message BeTreeConfig {
+  double epsilon = 1;
+  int64 max_pivots = 2;
+  int64 max_deltas = 3;
+  int64 max_leaf = 4;
+}
+
+message BeTreeLocator {
+  oneof location {
+    UInt128Value root_pageid = 1;
+    bytes inline_data = 4;
+  }
+  int64 element_count = 2;
+  int64 tree_height = 3;
+}
+
+message StorageIntegration {
+  string provider = 1; // "azure" or "s3"
+
+  // Options for azure
+  string azure_sas_token = 2;
+
+  // Options for s3
+  string s3_region = 3;
+  string s3_access_key_id = 4;
+  string s3_secret_access_key = 5;
+}
+
+// A single named column with its type. Used to describe both shared key columns and
+// per-relation value columns in the generalized `TargetRelations` loading construct.
+message NamedColumn {
+  string name = 1; // Column name (e.g. "src")
+  Type type = 2;   // Column type
+}
+
+// One target relation: the shared keys plus this relation's own (possibly empty) value columns.
+message TargetRelation {
+  RelationId target_id = 1;        // Output relation path
+  repeated NamedColumn values = 2; // Value columns for this relation (may be empty)
+}
+
+// Plain (non-CDC) load: each input row becomes a tuple in every target relation.
+message PlainTargets {
+  repeated TargetRelation targets = 1; // Target relations (each row feeds all of them)
+}
+
+// CDC load: input rows are routed by METADATA$ACTION into insert and delete deltas.
+message CDCTargets {
+  repeated TargetRelation inserts = 1; // INSERT-action rows feed these
+  repeated TargetRelation deletes = 2; // DELETE-action rows feed these
+}
+
+// Generalized loading: shared key columns plus the target relations, loaded either as a
+// plain snapshot or as CDC insert/delete deltas. The two modes are mutually exclusive.
+message TargetRelations {
+  repeated NamedColumn keys = 1; // Shared key columns
+  oneof body {
+    PlainTargets plain = 2;
+    CDCTargets cdc = 3;
+  }
+}
+
+message CSVData {
+  CSVLocator locator = 1;
+  CSVConfig config = 2;
+  repeated GNFColumn columns = 3;
+  string asof = 4; // Blob storage timestamp for freshness requirements
+  optional TargetRelations relations = 5; // If present, generalized loading; mutually exclusive with columns
+}
+
+message CSVLocator {
+  repeated string paths = 1; // URL(s) or filesystem path(s) for partitioned loading
+  bytes inline_data = 2; // Inline CSV content (mutually exclusive with paths)
+}
+
+message CSVConfig {
+  // Header and structure
+  int32 header_row = 1; // Row number for headers (< 1 means no header)
+  int64 skip = 2; // Lines to skip at start (default: 0)
+  string new_line = 3; // Newline char(s) (default: auto-detect)
+
+  // Delimiters and quotes
+  string delimiter = 4; // Column delimiter (default: ",")
+  string quotechar = 5; // Quote character (default: "\"")
+  string escapechar = 6; // Escape character (default: "\"")
+  string comment = 7; // Comment initiator (default: none)
+
+  // NULL handling
+  repeated string missing_strings = 8; // Strings to treat as NULL/missing
+
+  // Numeric formatting
+  string decimal_separator = 9; // Decimal point (default: ".")
+
+  // Encoding
+  string encoding = 10; // Character encoding (default: "utf-8")
+
+  // Compression
+  string compression = 11; // "none", "gzip", "zstd", "auto" (default: "auto")
+
+  // Partitioning (for export)
+  int64 partition_size_mb = 12;
+
+  // Storage integration (credentials for private buckets)
+  optional StorageIntegration storage_integration = 13;
+}
+
+message IcebergData {
+  IcebergLocator locator = 1;
+  IcebergCatalogConfig config = 2;
+  repeated GNFColumn columns = 3;
+  optional string from_snapshot = 4;
+  optional string to_snapshot = 5;
+  bool returns_delta = 6;
+}
+
+message IcebergLocator {
+  string table_name = 1;
+  repeated string namespace = 2;
+  string warehouse = 3;
+}
+
+message IcebergCatalogConfig {
+  string catalog_uri = 1;
+  optional string scope = 2;
+  map<string, string> properties = 3;
+  map<string, string> auth_properties = 4;
+}
+
+message GNFColumn {
+  repeated string column_path = 1; // Column identifier path (was: string column_name)
+  optional RelationId target_id = 2; // Target relation (now explicit optional)
+  repeated Type types = 3; // Relation signature (key types + value types)
+}
+
+//
+// Relation identifiers and types
+//
+message RelationId {
+  fixed64 id_low = 1; // Lower 64 bits of UInt128
+  fixed64 id_high = 2; // Upper 64 bits of UInt128
+}
+
+message Type {
+  oneof type {
+    UnspecifiedType unspecified_type = 1;
+    StringType string_type = 2;
+    IntType int_type = 3;
+    FloatType float_type = 4;
+    UInt128Type uint128_type = 5;
+    Int128Type int128_type = 6;
+    DateType date_type = 7;
+    DateTimeType datetime_type = 8;
+    MissingType missing_type = 9;
+    DecimalType decimal_type = 10;
+    BooleanType boolean_type = 11;
+    Int32Type int32_type = 12;
+    Float32Type float32_type = 13;
+    UInt32Type uint32_type = 14;
+  }
+}
+
+message UnspecifiedType {}
+
+message StringType {}
+
+message IntType {}
+
+message FloatType {}
+
+message UInt128Type {}
+
+message Int128Type {}
+
+message DateType {}
+
+message DateTimeType {}
+
+message MissingType {}
+
+message DecimalType {
+  int32 precision = 1;
+  int32 scale = 2;
+}
+
+message BooleanType {}
+
+message Int32Type {}
+
+message Float32Type {}
+
+message UInt32Type {}
+
+message Value {
+  oneof value {
+    string string_value = 1;
+    int64 int_value = 2;
+    double float_value = 3;
+    UInt128Value uint128_value = 4;
+    Int128Value int128_value = 5;
+    MissingValue missing_value = 6;
+    DateValue date_value = 7;
+    DateTimeValue datetime_value = 8;
+    DecimalValue decimal_value = 9;
+    bool boolean_value = 10;
+    int32 int32_value = 11;
+    float float32_value = 12;
+    uint32 uint32_value = 13;
+  }
+}
+
+message UInt128Value {
+  fixed64 low = 1; // Lower 64 bits of UInt128
+  fixed64 high = 2; // Upper 64 bits of UInt128
+}
+
+message Int128Value {
+  fixed64 low = 1; // Lower 64 bits of Int128
+  fixed64 high = 2; // Upper 64 bits of Int128
+}
+
+message MissingValue {}
+
+message DateValue {
+  int32 year = 1;
+  int32 month = 2;
+  int32 day = 3;
+}
+
+message DateTimeValue {
+  // DateTimeValue does not have a timezone - all values are assumed to be UTC. This is in
+  // line with the Iceberg spec for timestamp
+  int32 year = 1;
+  int32 month = 2;
+  int32 day = 3;
+  int32 hour = 4;
+  int32 minute = 5;
+  int32 second = 6;
+  int32 microsecond = 7;
+}
+
+message DecimalValue {
+  int32 precision = 1; // Total number of digits
+  int32 scale = 2; // Number of digits after decimal point
+  Int128Value value = 3; // Physical representation of decimal value
+}

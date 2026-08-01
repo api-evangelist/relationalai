@@ -1,8 +1,16 @@
 aid: relationalai
-name: Relationalai
-description: Relationalai is a company surfaced as a portfolio company of menlo-ventures and added to
-  the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+name: RelationalAI
+description: >-
+  RelationalAI is a decision-intelligence platform delivered as a Native App
+  inside Snowflake. Its core product, Rel, builds a semantic model from data in
+  Snowflake and reasons over it — combining graph analytics, rules, predictive
+  graph neural networks, and prescriptive optimization — to answer high-stakes
+  business questions (supply chain, pricing, inventory, demand forecasting) with
+  transparent, validatable reasoning steps. Developers work through PyRel (the
+  `relationalai` Python SDK), the `rai` CLI, and per-language HTTP SDKs
+  (JavaScript, Julia, Java), with queries compiled to the protobuf Logical Query
+  Protocol (LQP) and executed on RelationalAI engines running in Snowflake.
+  RelationalAI publishes its own coding-agent Skills to drive the workflow.
 url: https://raw.githubusercontent.com/api-evangelist/relationalai/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,11 +18,33 @@ x-backed-by:
 - menlo-ventures
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://cdn.prod.website-files.com/68c66131e7dc76329c719913/68df015bc18ca537629f59b3_og-home-relationalai.jpg
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
+- Decision Intelligence
+- Knowledge Graph
+- Semantic Layer
+- Snowflake
+- Graph Analytics
+- Machine Learning
+- Optimization
+- Reasoning
+- AI
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -24,3 +54,58 @@ maintainers:
 common:
 - type: Website
   url: https://relational.ai
+- type: DeveloperPortal
+  url: https://docs.relational.ai/
+- type: Documentation
+  url: https://docs.relational.ai/
+- type: APIReference
+  url: https://docs.relational.ai/api
+- type: GettingStarted
+  url: https://docs.relational.ai/build/setup
+- type: Blog
+  url: https://relational.ai/blog
+- type: GitHubOrganization
+  url: https://github.com/RelationalAI
+- type: Pricing
+  url: https://relational.ai/pricing
+- type: SignUp
+  url: https://relational.ai/get-in-touch
+- type: TermsOfService
+  url: https://cdn.prod.website-files.com/68c66131e7dc76329c719913/68d6bfd57445ffd406a54fec_relationalai-tos.pdf
+- type: PrivacyPolicy
+  url: https://relational.ai/privacy-policy
+- type: TrustCenter
+  url: security/relationalai-trust-center.yml
+- type: Compliance
+  url: https://trust.relational.ai/
+- type: DomainSecurity
+  url: security/relationalai-domain-security.yml
+- type: Packages
+  url: packages/relationalai-packages.yml
+- type: SDKs
+  url: packages/relationalai-packages.yml
+- type: CLI
+  url: cli/relationalai-cli.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Authentication
+  url: authentication/relationalai-authentication.yml
+- type: Conventions
+  url: conventions/relationalai-conventions.yml
+- type: Lifecycle
+  url: lifecycle/relationalai-lifecycle.yml
+- type: ChangeLog
+  url: changelog/relationalai-changelog.yml
+- type: Conformance
+  url: conformance/relationalai-conformance.yml
+- type: Protobuf
+  url: grpc/relationalai-lqp.yml
+- type: LLMsTxt
+  url: llms/relationalai-llms.txt
+- type: WellKnown
+  url: well-known/relationalai-well-known.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 14
+  pass: local-v1

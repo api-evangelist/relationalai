@@ -1,0 +1,9 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.relational.ai/llms.txt
+file: relationalai-llms.txt
+notes: >-
+  Provider-published llms.txt saved verbatim from docs.relational.ai. Mirrors the
+  docs sidebar with markdown links to build guides, management docs, API
+  references (Python/CLI/SQL), templates, and release notes. A full-context
+  llms-full.txt is also published but is intentionally NOT captured here.

@@ -1,0 +1,34 @@
+generated: '2026-07-21'
+method: searched
+source: https://trust.relational.ai/
+notes: >-
+  Compliance posture captured from the RelationalAI Trust Center. RelationalAI
+  is a Snowflake-native decision-intelligence platform; it exposes no public
+  OpenAPI/OAuth surface, so cross-cutting REST standards (OData, JSON:API,
+  RFC 9457, FAPI, SCIM) are not applicable. The entries below are published
+  security/compliance programs.
+standards:
+- id: soc2-type2
+  conforms: true
+  evidence: SOC 2 Type 2 report (2024, 2025) listed on trust.relational.ai
+- id: iso-27001
+  conforms: true
+  evidence: ISO/IEC 27001:2022 certified (reaffirmed June 2026)
+- id: iso-42001
+  conforms: true
+  evidence: ISO 42001:2023 AI management systems certification (2026)
+- id: hipaa
+  conforms: true
+  evidence: HIPAA compliance attestation (2024, 2025)
+- id: gdpr
+  conforms: true
+  evidence: GDPR attestation (2024, 2025)
+- id: vapt
+  conforms: true
+  evidence: Vulnerability Assessment and Penetration Testing (2025, 2026)
+- id: oauth2
+  conforms: false
+  evidence: no provider-hosted OAuth; identity delegated to Snowflake
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: no public REST/OpenAPI error surface

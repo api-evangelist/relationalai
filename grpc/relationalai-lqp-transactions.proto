@@ -1,0 +1,182 @@
+syntax = "proto3";
+
+option go_package = "github.com/RelationalAI/logical-query-protocol/sdks/go/src/lqp/v1";
+
+package relationalai.lqp.v1;
+
+import "relationalai/lqp/v1/fragments.proto";
+import "relationalai/lqp/v1/logic.proto";
+
+message Transaction {
+  repeated Epoch epochs = 1;
+  Configure configure = 2;
+  optional Sync sync = 3;
+}
+
+message Configure {
+  int64 semantics_version = 1;
+  IVMConfig ivm_config = 2;
+}
+
+message IVMConfig {
+  MaintenanceLevel level = 1;
+}
+
+enum MaintenanceLevel {
+  MAINTENANCE_LEVEL_UNSPECIFIED = 0;
+  MAINTENANCE_LEVEL_OFF = 1;
+  MAINTENANCE_LEVEL_AUTO = 2;
+  MAINTENANCE_LEVEL_ALL = 3;
+}
+
+message Sync {
+  repeated FragmentId fragments = 1;
+}
+
+message Epoch {
+  repeated Write writes = 1;
+  repeated Read reads = 2;
+}
+
+//
+// Write operations
+//
+
+message Write {
+  reserved 4; // Sync is now at transaction level
+  oneof write_type {
+    Define define = 1;
+    Undefine undefine = 2;
+    Context context = 3;
+    Snapshot snapshot = 5;
+  }
+}
+
+message Define {
+  Fragment fragment = 1;
+}
+
+message Undefine {
+  FragmentId fragment_id = 1;
+}
+
+message Context {
+  repeated RelationId relations = 1;
+}
+
+// A single (destination, source) pair within a Snapshot action. The destination_path is
+// relative to the Snapshot's prefix.
+message SnapshotMapping {
+  repeated string destination_path = 1;
+  RelationId source_relation = 2;
+}
+
+// Demand the source IDBs, take immutable snapshots, and turn them into EDBs under the
+// given paths (specified as sequences of strings, see EDB). If a prefix is specified,
+// the engine should treat this as a complete snapshot of all EDBs under that prefix,
+// removing any pre-existing EDBs for the same prefix that are not in the mappings.
+message Snapshot {
+  repeated SnapshotMapping mappings = 1;
+  repeated string prefix = 2;
+}
+
+//
+// Export config
+//
+
+message ExportCSVConfig {
+  // The following two fields should be in a `oneof`, but compatibility makes that tricky.
+  // The `path` option should be used if the client needs to output a CSV file to a
+  // specific location.
+  // The `transaction_output_name` should be used if the client wants the CSV file to be
+  // returned as part of the transaction results.
+  string path = 1;
+  string transaction_output_name = 12;
+
+  ExportCSVSource csv_source = 10;
+  CSVConfig csv_config = 11;
+
+  // Below are all deprecated in favour of the `csv_config` above.
+  repeated ExportCSVColumn data_columns = 2;
+
+  optional int64 partition_size = 3;
+  optional string compression = 4;
+  optional bool             syntax_header_row = 5;
+  optional string           syntax_missing_string = 6;
+  optional string           syntax_delim = 7;
+  optional string           syntax_quotechar = 8;
+  optional string           syntax_escapechar = 9;
+
+  // TODO: support data integration options, e.g., private tokens for private buckets etc.
+}
+
+message ExportCSVColumn {
+  string column_name = 1;
+  RelationId column_data = 2;
+}
+
+message ExportCSVColumns {
+  repeated ExportCSVColumn columns = 1;
+}
+
+message ExportCSVSource {
+  oneof csv_source {
+    ExportCSVColumns gnf_columns = 1;
+    RelationId table_def = 2;
+  }
+}
+
+// Iceberg Export config
+
+message ExportIcebergConfig {
+  IcebergLocator locator = 1;
+  IcebergCatalogConfig config = 2;
+  RelationId table_def = 3;              // Which definition to export as a table.
+  reserved 4;                            // was: repeated ExportColumn columns
+  optional string prefix = 5;            // File name prefix for parquet files that are produced.
+  optional int64 target_file_size_bytes = 6;
+  string compression = 7;
+  map<string, string> table_properties = 8;
+}
+
+//
+// Read operations
+//
+
+message Read {
+  oneof read_type {
+    Demand demand = 1;
+    Output output = 2;
+    WhatIf what_if = 3;
+    Abort abort = 4;
+    Export export = 5;
+  }
+}
+
+message Demand {
+  RelationId relation_id = 1;
+}
+
+message Output {
+  string name = 1;
+  RelationId relation_id = 2;
+}
+
+message Export {
+  oneof export_config {
+    ExportCSVConfig csv_config = 1;
+    ExportIcebergConfig iceberg_config = 2;
+
+    // TODO: support JSON export
+  }
+}
+
+message WhatIf {
+  string branch = 1;
+  Epoch epoch = 2;
+}
+
+message Abort {
+  string name = 1;
+  RelationId relation_id = 2;
+}

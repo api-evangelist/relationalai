@@ -1,0 +1,851 @@
+# RelationalAI Docs
+
+> RelationalAI documentation in sidebar order, with markdown links to guides, management docs, API references, and release notes for LLM-friendly retrieval.
+
+This file is curated for fast topic discovery. Links point to markdown content where available.
+
+## Notes
+
+- This file mirrors sidebar order.
+- Link descriptions come from page frontmatter when available.
+- Use `/llms.txt` for navigation and targeted retrieval.
+- Use `/llms-full.txt` for a single-file full-context export.
+
+## Build
+
+- [Overview](https://docs.relational.ai/build/index.md): Learn how to build intelligent applications with RelationalAI.
+
+### Set up your environment
+
+### Follow a tutorial
+
+### Start from a template
+
+- [Overview](https://docs.relational.ai/build/templates/index.md)
+- [Simple Start](https://docs.relational.ai/build/templates/simple-start/index.md): A minimal notebook to connect to Snowflake, model a small graph, and compute betweenness centrality with RelationalAI.
+- [Fraud Detection](https://docs.relational.ai/build/templates/fraud-detection/index.md): Transaction-fraud pipeline where account PageRank and high-volume account flags feed a graph neural network (GNN) binary classifier whose per-transaction scores drive a knapsack investigator-budget mixed-integer linear program (MILP).
+- [Disease Outbreak Prevention](https://docs.relational.ai/build/templates/disease-outbreak-prevention/index.md): Rank the highest-risk facilities in a public health network by weighted degree centrality (connection volume and intensity) to prioritize resource deployment during outbreaks.
+- [Energy Grid Planning](https://docs.relational.ai/build/templates/energy_grid_planning/index.md): Plan how to connect AI data centers to the Electric Reliability Council of Texas (ERCOT) power grid. Forecasts demand, finds vulnerable parts of the grid, applies compliance rules, and balances competing objectives to recommend where to interconnect.
+- [Retail Planning](https://docs.relational.ai/build/templates/retail_planning/index.md): Predict article sales and customer churn with graph neural networks (GNNs), then optimize markdown pricing and inventory planning to maximize revenue and minimize costs.
+- [Ad Spend Allocation](https://docs.relational.ai/build/templates/ad_spend_allocation/index.md): Allocate a marketing budget across advertising channels and campaigns to maximize expected conversions. Sweeps three budget levels in a single solve to show where extra budget stops paying off.
+- [BOM Reachability](https://docs.relational.ai/build/templates/bom-reachability/index.md): Trace transitive dependencies through a bill of materials to identify which raw materials each finished product depends on and which components are structural bottlenecks.
+- [Book Slate Recommendation](https://docs.relational.ai/build/templates/book_slate_recommendation/index.md): Recommend a ranked slate of books for each reader that balances relevance, diversity, and freshness. Produces an ordered, explainable set of picks per reader.
+- [Campaign ROI](https://docs.relational.ai/build/templates/campaign_roi/index.md): Reallocate marketing campaign budgets across regions to maximize conversions, with per-campaign floor and cap constraints and a regional cap on a paused region.
+- [Cell Tower Coverage](https://docs.relational.ai/build/templates/cell_tower_coverage/index.md): Choose which candidate cell tower sites to build and assign demand zones to them, maximizing covered population under budget, tower-count, and capacity limits.
+- [CI/CD Runner Allocation](https://docs.relational.ai/build/templates/cicd_runner_allocation/index.md): Assign continuous-integration and continuous-delivery (CI/CD) workflow jobs to the cheapest compatible runner within concurrency limits. Sweep capacity scenarios and diagnose an infeasible maintenance outage with conflict analysis.
+- [Commercial Underwriting](https://docs.relational.ai/build/templates/commercial_underwriting/index.md): Eligibility checks and risk-tier classification across a four-level commercial property/casualty hierarchy (insured entity, policy, location, coverage).
+- [Cybersecurity Attack Paths](https://docs.relational.ai/build/templates/cybersecurity-attack-paths/index.md): Trace multi-step cyber attack chains across an enterprise asset graph by composing attacker techniques in order, then rank the routes that reach crown-jewel systems by their total exposure.
+- [Datacenter Compute Allocation](https://docs.relational.ai/build/templates/datacenter_compute_allocation/index.md): Allocate GPU capacity across hyperscaler campuses using a graph neural network (GNN) that predicts per-workload utilization, hardware-compatibility rules, dependency PageRank, and a 24-cell scenario mixed-integer program (MIP). Picks up where energy_grid_planning leaves off.
+- [Defect Root-Cause Analysis](https://docs.relational.ai/build/templates/defect_root_cause/index.md): Diagnose a spike in final-test failures on an electronics assembly line by tracing each unit's history back through the bill of materials and the production line, then identifying the smallest set of causes that explains the failures.
+- [Demand Forecasting](https://docs.relational.ai/build/templates/demand_forecasting/index.md): Forecast next-period unit sales per store, item, and day with a regression graph neural network (GNN) over a heterogeneous retail graph linking sales to stores, items, and item families.
+- [Demand Planning Temporal](https://docs.relational.ai/build/templates/demand_planning_temporal/index.md): Plan weekly production and inventory across sites over a date-filtered planning horizon to minimize total cost while meeting demand.
+- [Diet Optimization](https://docs.relational.ai/build/templates/diet/index.md): Select foods to satisfy nutritional requirements at minimum cost.
+- [Entity Resolution](https://docs.relational.ai/build/templates/entity_resolution/index.md): Resolve duplicate policyholder records across an insurer's policy systems and acquired books into one insured party. Total each household's exposure, flag accumulation-limit breaches, and choose the lowest-cost reinsurance cessions to clear them.
+- [Factory Production](https://docs.relational.ai/build/templates/factory_production/index.md): Maximize production profit under per-factory resource limits, then read the sensitivity marginals (capacity shadow prices and product reduced costs) from one solve.
+- [Financial Index Replication](https://docs.relational.ai/build/templates/financial_index_replication/index.md): Select a sparse 20-stock replication basket and weights that track an S&P 500-like benchmark.
+- [Grid Interconnection](https://docs.relational.ai/build/templates/grid_interconnection/index.md): Approve data center interconnection requests and substation upgrades to maximize net revenue within capital budget.
+- [Hospital Staffing](https://docs.relational.ai/build/templates/hospital_staffing/index.md): Explore the tradeoff between overtime cost and patient service level using bi-objective optimization with epsilon constraint.
+- [Humanitarian Aid Supply Chain Network](https://docs.relational.ai/build/templates/humanitarian-aid-supply-chain/index.md): Analyze a humanitarian aid supply-chain network with PageRank and weighted degree centrality to optimize resource distribution.
+- [Inventory Rebalancing](https://docs.relational.ai/build/templates/inventory_rebalancing/index.md): Transfer inventory between warehouse sites to meet demand at minimum cost.
+- [IT Dependency Mapping](https://docs.relational.ai/build/templates/it-dependency-mapping/index.md): Map the downstream dependency structure of a software and data-pipeline estate by enumerating variable-length paths over an acyclic dependency graph. Surface the longest end-to-end chains and the owners along them to see a change or outage's full blast radius.
+- [Machine Maintenance](https://docs.relational.ai/build/templates/machine_maintenance/index.md): Schedule preventive maintenance across time slots to minimize cost while respecting crew-hour capacity and machine conflicts.
+- [Memory Supply Allocation](https://docs.relational.ai/build/templates/memory_supply_allocation/index.md): Allocate limited memory-chip supply across customers month by month to maximize margin while protecting key accounts. Also surfaces which suppliers and raw materials put the plan most at risk.
+- [Money-Laundering Motif Detection](https://docs.relational.ai/build/templates/money_laundering_motif_detection/index.md): Detect three classes of money-laundering layering motif on one transaction ledger using constraint-satisfaction (CSP) reasoning. Each motif enforces a joint condition across a solver-chosen subset of accounts and edges.
+- [Network Flow](https://docs.relational.ai/build/templates/network_flow/index.md): Maximize flow through a capacitated network from a source node.
+- [Network Flow Planning](https://docs.relational.ai/build/templates/network_flow_planning/index.md): Plan a multi-tier distribution flow that decides which fulfillment centers to open and how much to ship on every lane to satisfy customer demand at minimum cost.
+- [Order Fulfillment](https://docs.relational.ai/build/templates/order_fulfillment/index.md): Assign customer orders to fulfillment centers to minimize shipping and fixed costs.
+- [Patient Cohort Recruitment](https://docs.relational.ai/build/templates/patient_cohort_recruitment/index.md): Build a clinical-research cohort over a patient knowledge graph. It selects a small set of eligible patients that together span enough distinct genes, therapies, and adverse events for a study to generalize.
+- [Planogram Optimization](https://docs.relational.ai/build/templates/planogram_optimization/index.md): Decide integer facing counts per SKU to maximize predicted weekly demand under shelf capacity and category cardinality limits, where per-(SKU, facing_count) demand comes from a regression model.
+- [Pod Placement](https://docs.relational.ai/build/templates/pod_placement/index.md): Assign pods to nodes in a Kubernetes-style cluster subject to per-node CPU, memory, and GPU bin-packing, pairwise tenant anti-affinity, deployment co-location affinity, failure-domain spread, gang-placement atomicity, and topology rack-clique rules, solved as a pure constraint satisfaction proble...
+- [Portfolio Balancing](https://docs.relational.ai/build/templates/portfolio_balancing/index.md): Compliance screening, covariance clustering, and bi-objective Markowitz optimization that traces the risk-return frontier with solver shadow prices, plus a crisis-regime stress test.
+- [Product Configurator](https://docs.relational.ai/build/templates/product_configurator/index.md): Enumerate every feasible build of a configurable product with a constraint solver in multi-solution mode. Each build picks one option per slot subject to feature-model rules, regional regulations, and a price ceiling.
+- [Production Planning](https://docs.relational.ai/build/templates/production_planning/index.md): Schedule production across machines to meet demand and maximize profit with scenario analysis.
+- [Retail Markdown](https://docs.relational.ai/build/templates/retail_markdown/index.md): Set discount levels across weeks to maximize revenue while clearing inventory.
+- [Shift Assignment](https://docs.relational.ai/build/templates/shift_assignment/index.md): Assign workers to shifts based on availability to meet coverage requirements.
+- [Shipment Compliance](https://docs.relational.ai/build/templates/shipment_compliance/index.md): Derived classifications for shipment compliance, sourcing risk, and demand escalation.
+- [Smoker Status Prediction](https://docs.relational.ai/build/templates/smoker_status_prediction/index.md): Predict whether a person is a smoker from demographic and medical attributes plus a network of social connections.
+- [Snowflake Intelligence Agent — RelationalAI Knowledge Graph](https://docs.relational.ai/build/templates/rai-agent-scaffold/index.md): Scaffold for packaging a RelationalAI semantic model as a Snowflake Cortex agent and exposing it through Snowflake Intelligence.
+- [Sprint Scheduling](https://docs.relational.ai/build/templates/sprint_scheduling/index.md): Assign backlog issues to developers across sprints, minimizing weighted completion time while respecting capacity and skill constraints. Uses mixed-integer programming (MIP).
+- [Subscriber Retention](https://docs.relational.ai/build/templates/subscriber_retention/index.md): Score every telco subscriber for churn risk using a graph neural network (GNN) that learns from both plan attributes and each subscriber's position in the call network, then surface the highest-risk subscribers per segment for retention campaigns.
+- [Supplier Reliability](https://docs.relational.ai/build/templates/supplier_reliability/index.md): Select suppliers to meet product demand at minimum cost, with sensitivity marginals and supplier-disruption scenario analysis.
+- [Supply Chain Resilience](https://docs.relational.ai/build/templates/supply_chain_resilience/index.md): Chain blast-radius reachability, network analysis, and rule-based risk classification into a risk-adjusted minimum-cost network flow for supply-chain routing.
+- [Supply Chain Transport](https://docs.relational.ai/build/templates/supply_chain_transport/index.md): Minimize inventory holding and transport costs with TL/LTL mode selection.
+- [Synthetic Eligibility Records](https://docs.relational.ai/build/templates/synthetic_eligibility_records/index.md): Generate K distinct, internally consistent member eligibility records per solve in multi-solution mode: each satisfies CMS Medicare-eligibility, age-by-plan-type CFDs, and PCP-network attribution.
+- [Synthetic Order Lifecycle](https://docs.relational.ai/build/templates/synthetic_order_lifecycle/index.md): Generate synthetic order-lifecycle event traces (PLACE / MODIFY / CANCEL / FILL) that satisfy MiFID II / Reg NMS-flavour sequencing rules.
+- [Telco Network Recovery](https://docs.relational.ai/build/templates/telco_network_recovery/index.md): Tower-upgrade planning on a shared telco ontology: an equipment-failure graph neural network (GNN) over a heterogeneous graph (with manufacturer advisories), declarative critical-tower rules, and customer-impact analysis (revenue times churn, with PageRank).
+- [Test Data Generation](https://docs.relational.ai/build/templates/test_data_generation/index.md): Determine optimal row counts for test database tables satisfying schema and referential integrity constraints.
+- [Transaction Screening (Local DuckDB)](https://docs.relational.ai/build/templates/transaction_screening_local/index.md): Triage a transfer ledger with rules-based reasoning on a local DuckDB database, with no Snowflake account required: classify accounts that move money just under reporting thresholds, flag large senders, and expand the investigation to everyone who transacted with a flagged account.
+- [Traveling Salesman](https://docs.relational.ai/build/templates/traveling_salesman/index.md): Find the shortest route that visits every city exactly once and returns home. A self-contained starting point for building route optimization on RelationalAI.
+- [Underwriting Audit](https://docs.relational.ai/build/templates/underwriting_audit/index.md): Audit an underwriting ruleset against a catalog of required properties. For each property, the solver either proves it always holds or returns concrete counterexample applicants that break it.
+- [Vehicle Scheduling](https://docs.relational.ai/build/templates/vehicle_scheduling/index.md): Assign trips to vehicles to minimize total cost, including fixed vehicle activation costs and per-mile costs.
+- [Warehouse Allocation](https://docs.relational.ai/build/templates/warehouse_allocation/index.md): Allocate inventory across a distribution network using centrality, weakly-connected components, and bridge-route detection to prioritize critical hubs.
+- [Water Allocation](https://docs.relational.ai/build/templates/water_allocation/index.md): Minimize the cost of distributing water from sources to users with nonlinear transmission losses.
+- [Wildlife Conservation Network](https://docs.relational.ai/build/templates/wildlife-conservation-network/index.md): Identify collaboration clusters among wildlife-conservation organizations with Louvain community detection and degree centrality, surfacing key coordination hubs for resource sharing.
+
+### Understand how PyRel works
+
+- [Overview](https://docs.relational.ai/build/guides/index.md)
+
+#### Configure PyRel
+
+#### Build a semantic model
+
+#### Use advanced reasoning
+
+- [Overview](https://docs.relational.ai/build/guides/reasoning/index.md)
+
+##### Rules-based reasoning
+
+##### Graph reasoning
+
+##### Prescriptive reasoning
+
+- [Overview](https://docs.relational.ai/build/guides/reasoning/prescriptive/index.md)
+- **Choose a solver backend**
+
+- **Solve a decision problem**
+
+##### Predictive reasoning
+
+### Use RAI with AI agents
+
+## Manage
+
+- [Overview](https://docs.relational.ai/manage/index.md): Manage the RelationalAI Native App for Snowflake with guides for setup, app operations, data sources, and reasoners.
+
+### Get started
+
+### Manage the Native App
+
+### Manage Data Sources
+
+### Manage Reasoners
+
+## API Reference
+
+- [Overview](https://docs.relational.ai/api/index.md)
+
+### Python
+
+- [Overview](https://docs.relational.ai/api/python/v1.21/index.md)
+
+#### agent
+
+- [Overview](https://docs.relational.ai/api/python/v1.21/agent/index.md)
+
+##### cortex
+
+- [Overview](https://docs.relational.ai/api/python/v1.21/agent/cortex/index.md)
+- [APIResponseError](https://docs.relational.ai/api/python/v1.21/agent/cortex/apiresponseerror_class/index.md)
+
+- **chat**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/agent/cortex/chat/index.md)
+  - [ChatResponse](https://docs.relational.ai/api/python/v1.21/agent/cortex/chat/chatresponse_class/index.md)
+  - [CortexAgentChat](https://docs.relational.ai/api/python/v1.21/agent/cortex/chat/cortexagentchat_class/index.md)
+
+- **cortex_agent_manager**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/agent/cortex/cortex_agent_manager/index.md)
+  - [CortexAgentManager](https://docs.relational.ai/api/python/v1.21/agent/cortex/cortex_agent_manager/cortexagentmanager_class/index.md)
+- [CortexAgentApi](https://docs.relational.ai/api/python/v1.21/agent/cortex/cortexagentapi_class/index.md)
+- [CortexThreadApi](https://docs.relational.ai/api/python/v1.21/agent/cortex/cortexthreadapi_class/index.md)
+
+- **deployment_config**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/agent/cortex/deployment_config/index.md)
+  - [DeploymentConfig](https://docs.relational.ai/api/python/v1.21/agent/cortex/deployment_config/deploymentconfig_class/index.md)
+  - [DeploymentStatus](https://docs.relational.ai/api/python/v1.21/agent/cortex/deployment_config/deploymentstatus_class/index.md)
+
+- **discover_imports**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/agent/cortex/discover_imports/index.md)
+  - [discover_imports](https://docs.relational.ai/api/python/v1.21/agent/cortex/discover_imports/discover_imports/index.md)
+- [http_client](https://docs.relational.ai/api/python/v1.21/agent/cortex/http_client/index.md)
+
+- **queries**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/agent/cortex/queries/index.md)
+  - [CompositeQueries](https://docs.relational.ai/api/python/v1.21/agent/cortex/queries/compositequeries_class/index.md)
+  - [DYNAMIC_QUERY_ID](https://docs.relational.ai/api/python/v1.21/agent/cortex/queries/dynamic_query_id/index.md)
+  - [DynamicQueries](https://docs.relational.ai/api/python/v1.21/agent/cortex/queries/dynamicqueries_class/index.md)
+  - [Queries](https://docs.relational.ai/api/python/v1.21/agent/cortex/queries/queries_class/index.md)
+  - [QueryCatalog](https://docs.relational.ai/api/python/v1.21/agent/cortex/queries/querycatalog_class/index.md)
+
+- **tool**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/agent/cortex/tool/index.md)
+  - [DefaultTool](https://docs.relational.ai/api/python/v1.21/agent/cortex/tool/defaulttool_class/index.md)
+  - [MaturityLevel](https://docs.relational.ai/api/python/v1.21/agent/cortex/tool/maturitylevel_class/index.md)
+  - [Tool](https://docs.relational.ai/api/python/v1.21/agent/cortex/tool/tool_class/index.md)
+  - [ToolRegistry](https://docs.relational.ai/api/python/v1.21/agent/cortex/tool/toolregistry_class/index.md)
+
+- **verbalize**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/agent/cortex/verbalize/index.md)
+  - [ModelVerbalizer](https://docs.relational.ai/api/python/v1.21/agent/cortex/verbalize/modelverbalizer_class/index.md)
+  - [SourceCodeVerbalizer](https://docs.relational.ai/api/python/v1.21/agent/cortex/verbalize/sourcecodeverbalizer_class/index.md)
+  - [Verbalizer](https://docs.relational.ai/api/python/v1.21/agent/cortex/verbalize/verbalizer_class/index.md)
+
+#### auth
+
+- [Overview](https://docs.relational.ai/api/python/v1.21/auth/index.md)
+
+##### handlers
+
+- [Overview](https://docs.relational.ai/api/python/v1.21/auth/handlers/index.md)
+- **base**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/auth/handlers/base/index.md)
+  - [DirectAccessAuthError](https://docs.relational.ai/api/python/v1.21/auth/handlers/base/directaccessautherror_class/index.md)
+  - [DirectAccessConfigError](https://docs.relational.ai/api/python/v1.21/auth/handlers/base/directaccessconfigerror_class/index.md)
+  - [DirectAccessEndpointStaleError](https://docs.relational.ai/api/python/v1.21/auth/handlers/base/directaccessendpointstaleerror_class/index.md)
+  - [DirectAccessOAuthBrowserOpenError](https://docs.relational.ai/api/python/v1.21/auth/handlers/base/directaccessoauthbrowseropenerror_class/index.md)
+  - [DirectAccessOAuthError](https://docs.relational.ai/api/python/v1.21/auth/handlers/base/directaccessoautherror_class/index.md)
+  - [DirectAccessOAuthInvalidClientError](https://docs.relational.ai/api/python/v1.21/auth/handlers/base/directaccessoauthinvalidclienterror_class/index.md)
+  - [DirectAccessOAuthStateMismatchError](https://docs.relational.ai/api/python/v1.21/auth/handlers/base/directaccessoauthstatemismatcherror_class/index.md)
+  - [DirectAccessOAuthTimeoutError](https://docs.relational.ai/api/python/v1.21/auth/handlers/base/directaccessoauthtimeouterror_class/index.md)
+
+#### client
+
+- [Overview](https://docs.relational.ai/api/python/v1.21/client/index.md)
+
+##### client
+
+- [Overview](https://docs.relational.ai/api/python/v1.21/client/client/index.md)
+- [Client](https://docs.relational.ai/api/python/v1.21/client/client/client_class/index.md)
+
+##### client_sync
+
+- [Overview](https://docs.relational.ai/api/python/v1.21/client/client_sync/index.md)
+- [ClientSync](https://docs.relational.ai/api/python/v1.21/client/client_sync/clientsync_class/index.md)
+- [connect](https://docs.relational.ai/api/python/v1.21/client/connect/index.md)
+- [connect_sync](https://docs.relational.ai/api/python/v1.21/client/connect_sync/index.md)
+
+##### errors
+
+- [Overview](https://docs.relational.ai/api/python/v1.21/client/errors/index.md)
+- **exceptions**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/client/errors/exceptions/index.md)
+  - [AbortedTransactionError](https://docs.relational.ai/api/python/v1.21/client/errors/exceptions/abortedtransactionerror_class/index.md)
+  - [ClientAuthError](https://docs.relational.ai/api/python/v1.21/client/errors/exceptions/clientautherror_class/index.md)
+  - [ClientConflictError](https://docs.relational.ai/api/python/v1.21/client/errors/exceptions/clientconflicterror_class/index.md)
+  - [ClientError](https://docs.relational.ai/api/python/v1.21/client/errors/exceptions/clienterror_class/index.md)
+  - [ClientInvalidRequestError](https://docs.relational.ai/api/python/v1.21/client/errors/exceptions/clientinvalidrequesterror_class/index.md)
+  - [ClientNotFoundError](https://docs.relational.ai/api/python/v1.21/client/errors/exceptions/clientnotfounderror_class/index.md)
+  - [ClientNotReadyError](https://docs.relational.ai/api/python/v1.21/client/errors/exceptions/clientnotreadyerror_class/index.md)
+  - [ClientServerError](https://docs.relational.ai/api/python/v1.21/client/errors/exceptions/clientservererror_class/index.md)
+  - [ClientSqlCompilationError](https://docs.relational.ai/api/python/v1.21/client/errors/exceptions/clientsqlcompilationerror_class/index.md)
+  - [ClientTimeoutError](https://docs.relational.ai/api/python/v1.21/client/errors/exceptions/clienttimeouterror_class/index.md)
+  - [ClientUnknownError](https://docs.relational.ai/api/python/v1.21/client/errors/exceptions/clientunknownerror_class/index.md)
+  - [DuoSecurityFailed](https://docs.relational.ai/api/python/v1.21/client/errors/exceptions/duosecurityfailed_class/index.md)
+  - [SnowflakeAppMissingException](https://docs.relational.ai/api/python/v1.21/client/errors/exceptions/snowflakeappmissingexception_class/index.md)
+  - [SnowflakeConnectionFailed](https://docs.relational.ai/api/python/v1.21/client/errors/exceptions/snowflakeconnectionfailed_class/index.md)
+  - [SnowflakeDatabaseException](https://docs.relational.ai/api/python/v1.21/client/errors/exceptions/snowflakedatabaseexception_class/index.md)
+  - [SnowflakeRaiAppNotStarted](https://docs.relational.ai/api/python/v1.21/client/errors/exceptions/snowflakeraiappnotstarted_class/index.md)
+- [from_session](https://docs.relational.ai/api/python/v1.21/client/from_session/index.md)
+- [from_session_sync](https://docs.relational.ai/api/python/v1.21/client/from_session_sync/index.md)
+
+#### config
+
+- [Overview](https://docs.relational.ai/api/python/v1.21/config/index.md)
+
+##### config
+
+- [Overview](https://docs.relational.ai/api/python/v1.21/config/config/index.md)
+- [Config](https://docs.relational.ai/api/python/v1.21/config/config/config_class/index.md)
+- [ConfigFromRAIConfigToml](https://docs.relational.ai/api/python/v1.21/config/config/configfromraiconfigtoml_class/index.md)
+- [create_config](https://docs.relational.ai/api/python/v1.21/config/config/create_config/index.md)
+- [RAIConfig](https://docs.relational.ai/api/python/v1.21/config/config/raiconfig_class/index.md)
+
+##### config_deployment_fields
+
+- [Overview](https://docs.relational.ai/api/python/v1.21/config/config_deployment_fields/index.md)
+- [DeploymentConfig](https://docs.relational.ai/api/python/v1.21/config/config_deployment_fields/deploymentconfig_class/index.md)
+- [OutputsConfig](https://docs.relational.ai/api/python/v1.21/config/config_deployment_fields/outputsconfig_class/index.md)
+
+##### config_fields
+
+- [Overview](https://docs.relational.ai/api/python/v1.21/config/config_fields/index.md)
+- [CompilerConfig](https://docs.relational.ai/api/python/v1.21/config/config_fields/compilerconfig_class/index.md)
+- [DataConfig](https://docs.relational.ai/api/python/v1.21/config/config_fields/dataconfig_class/index.md)
+- [DebugConfig](https://docs.relational.ai/api/python/v1.21/config/config_fields/debugconfig_class/index.md)
+- [ExecutionConfig](https://docs.relational.ai/api/python/v1.21/config/config_fields/executionconfig_class/index.md)
+- [JobsConfig](https://docs.relational.ai/api/python/v1.21/config/config_fields/jobsconfig_class/index.md)
+- [ModelConfig](https://docs.relational.ai/api/python/v1.21/config/config_fields/modelconfig_class/index.md)
+- [OplogConfig](https://docs.relational.ai/api/python/v1.21/config/config_fields/oplogconfig_class/index.md)
+- [RetriesConfig](https://docs.relational.ai/api/python/v1.21/config/config_fields/executionconfig/index.md)
+
+##### config_reasoners_fields
+
+- [Overview](https://docs.relational.ai/api/python/v1.21/config/config_reasoners_fields/index.md)
+- [AWSEngineSize](https://docs.relational.ai/api/python/v1.21/config/config_reasoners_fields/awsenginesize/index.md)
+- [AzureEngineSize](https://docs.relational.ai/api/python/v1.21/config/config_reasoners_fields/azureenginesize/index.md)
+- [EngineSize](https://docs.relational.ai/api/python/v1.21/config/config_reasoners_fields/enginesize/index.md)
+- [InternalEngineSize](https://docs.relational.ai/api/python/v1.21/config/config_reasoners_fields/internalenginesize/index.md)
+- [LogicReasonerConfig](https://docs.relational.ai/api/python/v1.21/config/config_reasoners_fields/logicreasonerconfig_class/index.md)
+- [PrescriptiveReasonerConfig](https://docs.relational.ai/api/python/v1.21/config/config_reasoners_fields/prescriptivereasonerconfig_class/index.md)
+- [ReasonerConfig](https://docs.relational.ai/api/python/v1.21/config/config_reasoners_fields/reasonerconfig_class/index.md)
+- [ReasonerLogicLqpConfig](https://docs.relational.ai/api/python/v1.21/config/config_reasoners_fields/reasonerlogiclqpconfig_class/index.md)
+- [ReasonersConfig](https://docs.relational.ai/api/python/v1.21/config/config_reasoners_fields/reasonersconfig_class/index.md)
+
+##### connections
+
+- [Overview](https://docs.relational.ai/api/python/v1.21/config/connections/index.md)
+- **base**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/config/connections/base/index.md)
+  - [BaseConnection](https://docs.relational.ai/api/python/v1.21/config/connections/base/baseconnection_class/index.md)
+- [ConnectionConfig](https://docs.relational.ai/api/python/v1.21/config/connections/connectionconfig/index.md)
+- [duckdb](https://docs.relational.ai/api/python/v1.21/config/connections/duckdb/index.md)
+
+- **local**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/config/connections/local/index.md)
+  - [LocalConnection](https://docs.relational.ai/api/python/v1.21/config/connections/local/localconnection_class/index.md)
+
+- **snowflake**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/config/connections/snowflake/index.md)
+  - [ExternalBrowserAuth](https://docs.relational.ai/api/python/v1.21/config/connections/snowflake/externalbrowserauth_class/index.md)
+  - [JWTAuth](https://docs.relational.ai/api/python/v1.21/config/connections/snowflake/jwtauth_class/index.md)
+  - [OAuthAuth](https://docs.relational.ai/api/python/v1.21/config/connections/snowflake/oauthauth_class/index.md)
+  - [OAuthAuthorizationCodeAuth](https://docs.relational.ai/api/python/v1.21/config/connections/snowflake/oauthauthorizationcodeauth_class/index.md)
+  - [OAuthClientCredentialsAuth](https://docs.relational.ai/api/python/v1.21/config/connections/snowflake/oauthclientcredentialsauth_class/index.md)
+  - [ProgrammaticAccessTokenAuth](https://docs.relational.ai/api/python/v1.21/config/connections/snowflake/programmaticaccesstokenauth_class/index.md)
+  - [SnowflakeAuthenticator](https://docs.relational.ai/api/python/v1.21/config/connections/snowflake/snowflakeauthenticator/index.md)
+  - [SnowflakeConnection](https://docs.relational.ai/api/python/v1.21/config/connections/snowflake/snowflakeconnection/index.md)
+  - [SnowflakeConnectionBase](https://docs.relational.ai/api/python/v1.21/config/connections/snowflake/snowflakeconnectionbase_class/index.md)
+  - [UsernamePasswordAuth](https://docs.relational.ai/api/python/v1.21/config/connections/snowflake/usernamepasswordauth_class/index.md)
+  - [UsernamePasswordMFAAuth](https://docs.relational.ai/api/python/v1.21/config/connections/snowflake/usernamepasswordmfaauth_class/index.md)
+
+##### errors
+
+- [Overview](https://docs.relational.ai/api/python/v1.21/config/errors/index.md)
+- **context**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/config/errors/context/index.md)
+  - [ConfigErrorContext](https://docs.relational.ai/api/python/v1.21/config/errors/context/configerrorcontext_class/index.md)
+  - [ConfigSourceType](https://docs.relational.ai/api/python/v1.21/config/errors/context/configsourcetype_class/index.md)
+
+- **exceptions**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/config/errors/exceptions/index.md)
+  - [AttemptedSource](https://docs.relational.ai/api/python/v1.21/config/errors/exceptions/attemptedsource_class/index.md)
+  - [ConfigCloseError](https://docs.relational.ai/api/python/v1.21/config/errors/exceptions/configcloseerror_class/index.md)
+  - [ConfigError](https://docs.relational.ai/api/python/v1.21/config/errors/exceptions/configerror_class/index.md)
+  - [ConfigFieldMissingError](https://docs.relational.ai/api/python/v1.21/config/errors/exceptions/configfieldmissingerror_class/index.md)
+  - [ConfigFieldTypeError](https://docs.relational.ai/api/python/v1.21/config/errors/exceptions/configfieldtypeerror_class/index.md)
+  - [ConfigFileNotFoundError](https://docs.relational.ai/api/python/v1.21/config/errors/exceptions/configfilenotfounderror_class/index.md)
+  - [ConfigValidationError](https://docs.relational.ai/api/python/v1.21/config/errors/exceptions/configvalidationerror_class/index.md)
+
+#### semantics
+
+- [Overview](https://docs.relational.ai/api/python/v1.21/semantics/index.md)
+- [alias](https://docs.relational.ai/api/python/v1.21/semantics/alias/index.md)
+- [data](https://docs.relational.ai/api/python/v1.21/semantics/data/index.md)
+- [define](https://docs.relational.ai/api/python/v1.21/semantics/define/index.md)
+- [distinct](https://docs.relational.ai/api/python/v1.21/semantics/distinct/index.md)
+
+##### frontend
+
+- [Overview](https://docs.relational.ai/api/python/v1.21/semantics/frontend/index.md)
+- **base**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/index.md)
+  - [Aggregate](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/aggregate_class/index.md)
+  - [Alias](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/alias_class/index.md)
+  - [AsBool](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/asbool_class/index.md)
+  - [Chain](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/chain_class/index.md)
+  - [Concept](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/concept_class/index.md)
+  - [Data](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/data_class/index.md)
+  - [DerivedColumn](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/derivedcolumn_class/index.md)
+  - [DerivedTable](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/derivedtable_class/index.md)
+  - [Distinct](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/distinct_class/index.md)
+  - [DSLBase](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/dslbase_class/index.md)
+  - [Expression](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/expression_class/index.md)
+  - [Field](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/field_class/index.md)
+  - [FieldRef](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/fieldref_class/index.md)
+  - [FilterBy](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/filterby_class/index.md)
+  - [Fragment](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/fragment_class/index.md)
+  - [generates_rules](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/generates_rules/index.md)
+  - [Group](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/group_class/index.md)
+  - [Literal](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/literal_class/index.md)
+  - [LookupBy](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/lookupby_class/index.md)
+  - [Match](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/match_class/index.md)
+  - [Model](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/model_class/index.md)
+  - [New](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/new_class/index.md)
+  - [Not](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/not_class/index.md)
+  - [NumberConcept](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/numberconcept_class/index.md)
+  - [Primitive](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/primitive/index.md)
+  - [Property](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/property_class/index.md)
+  - [Reading](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/reading_class/index.md)
+  - [Ref](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/ref_class/index.md)
+  - [Relationship](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/relationship_class/index.md)
+  - [Statement](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/statement/index.md)
+  - [StatementAndSchema](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/statementandschema/index.md)
+  - [Table](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/table_class/index.md)
+  - [TableSchema](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/tableschema_class/index.md)
+  - [TupleVariable](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/tuplevariable_class/index.md)
+  - [Union](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/union_class/index.md)
+  - [Value](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/value/index.md)
+  - [Variable](https://docs.relational.ai/api/python/v1.21/semantics/frontend/base/variable_class/index.md)
+
+- **core**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/semantics/frontend/core/index.md)
+  - [Any](https://docs.relational.ai/api/python/v1.21/semantics/frontend/core/any/index.md)
+  - [AnyEntity](https://docs.relational.ai/api/python/v1.21/semantics/frontend/core/anyentity/index.md)
+  - [AnyNumber](https://docs.relational.ai/api/python/v1.21/semantics/frontend/core/anynumber_class/index.md)
+  - [Bool](https://docs.relational.ai/api/python/v1.21/semantics/frontend/core/bool/index.md)
+  - [Boolean](https://docs.relational.ai/api/python/v1.21/semantics/frontend/core/boolean/index.md)
+  - [Date](https://docs.relational.ai/api/python/v1.21/semantics/frontend/core/date/index.md)
+  - [DateTime](https://docs.relational.ai/api/python/v1.21/semantics/frontend/core/datetime/index.md)
+  - [Decimal](https://docs.relational.ai/api/python/v1.21/semantics/frontend/core/decimal/index.md)
+  - [DefaultNumber](https://docs.relational.ai/api/python/v1.21/semantics/frontend/core/defaultnumber/index.md)
+  - [Error](https://docs.relational.ai/api/python/v1.21/semantics/frontend/core/error/index.md)
+  - [Float](https://docs.relational.ai/api/python/v1.21/semantics/frontend/core/float/index.md)
+  - [Hash](https://docs.relational.ai/api/python/v1.21/semantics/frontend/core/hash/index.md)
+  - [Int](https://docs.relational.ai/api/python/v1.21/semantics/frontend/core/int/index.md)
+  - [Int64](https://docs.relational.ai/api/python/v1.21/semantics/frontend/core/int64/index.md)
+  - [Int128](https://docs.relational.ai/api/python/v1.21/semantics/frontend/core/int128/index.md)
+  - [Integer](https://docs.relational.ai/api/python/v1.21/semantics/frontend/core/integer/index.md)
+  - [Number](https://docs.relational.ai/api/python/v1.21/semantics/frontend/core/number/index.md)
+  - [Numeric](https://docs.relational.ai/api/python/v1.21/semantics/frontend/core/numeric/index.md)
+  - [ScaledNumber](https://docs.relational.ai/api/python/v1.21/semantics/frontend/core/scalednumber/index.md)
+  - [String](https://docs.relational.ai/api/python/v1.21/semantics/frontend/core/string/index.md)
+- [not_](https://docs.relational.ai/api/python/v1.21/semantics/not_/index.md)
+
+##### reasoners
+
+- [Overview](https://docs.relational.ai/api/python/v1.21/semantics/reasoners/index.md)
+- **graph**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/semantics/reasoners/graph/index.md)
+  - **core**
+    - [Overview](https://docs.relational.ai/api/python/v1.21/semantics/reasoners/graph/core/index.md)
+    - [Graph](https://docs.relational.ai/api/python/v1.21/semantics/reasoners/graph/core/graph_class/index.md)
+
+- **predictive**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/semantics/reasoners/predictive/index.md)
+  - **estimator**
+    - [Overview](https://docs.relational.ai/api/python/v1.21/semantics/reasoners/predictive/estimator/index.md)
+    - [GNN](https://docs.relational.ai/api/python/v1.21/semantics/reasoners/predictive/estimator/gnn_class/index.md)
+
+  - **property_transformer**
+    - [Overview](https://docs.relational.ai/api/python/v1.21/semantics/reasoners/predictive/property_transformer/index.md)
+    - [PropertyTransformer](https://docs.relational.ai/api/python/v1.21/semantics/reasoners/predictive/property_transformer/propertytransformer_class/index.md)
+
+- **prescriptive**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/semantics/reasoners/prescriptive/index.md)
+  - [all_different](https://docs.relational.ai/api/python/v1.21/semantics/reasoners/prescriptive/all_different/index.md)
+  - [implies](https://docs.relational.ai/api/python/v1.21/semantics/reasoners/prescriptive/implies/index.md)
+
+  - **problem**
+    - [Overview](https://docs.relational.ai/api/python/v1.21/semantics/reasoners/prescriptive/problem/index.md)
+    - [Problem](https://docs.relational.ai/api/python/v1.21/semantics/reasoners/prescriptive/problem/problem_class/index.md)
+  - [special_ordered_set_type_1](https://docs.relational.ai/api/python/v1.21/semantics/reasoners/prescriptive/special_ordered_set_type_1/index.md)
+  - [special_ordered_set_type_2](https://docs.relational.ai/api/python/v1.21/semantics/reasoners/prescriptive/special_ordered_set_type_2/index.md)
+- [require](https://docs.relational.ai/api/python/v1.21/semantics/require/index.md)
+- [select](https://docs.relational.ai/api/python/v1.21/semantics/select/index.md)
+
+##### std
+
+- [Overview](https://docs.relational.ai/api/python/v1.21/semantics/std/index.md)
+- **aggregates**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/semantics/std/aggregates/index.md)
+  - [asc](https://docs.relational.ai/api/python/v1.21/semantics/std/aggregates/asc/index.md)
+  - [avg](https://docs.relational.ai/api/python/v1.21/semantics/std/aggregates/avg/index.md)
+  - [bottom](https://docs.relational.ai/api/python/v1.21/semantics/std/aggregates/bottom/index.md)
+  - [count](https://docs.relational.ai/api/python/v1.21/semantics/std/aggregates/count/index.md)
+  - [cumsum_asc](https://docs.relational.ai/api/python/v1.21/semantics/std/aggregates/cumsum_asc/index.md)
+  - [desc](https://docs.relational.ai/api/python/v1.21/semantics/std/aggregates/desc/index.md)
+  - [limit](https://docs.relational.ai/api/python/v1.21/semantics/std/aggregates/limit/index.md)
+  - [max](https://docs.relational.ai/api/python/v1.21/semantics/std/aggregates/max/index.md)
+  - [min](https://docs.relational.ai/api/python/v1.21/semantics/std/aggregates/min/index.md)
+  - [per](https://docs.relational.ai/api/python/v1.21/semantics/std/aggregates/per/index.md)
+  - [Per](https://docs.relational.ai/api/python/v1.21/semantics/std/aggregates/per_class/index.md)
+  - [product](https://docs.relational.ai/api/python/v1.21/semantics/std/aggregates/product/index.md)
+  - [rank](https://docs.relational.ai/api/python/v1.21/semantics/std/aggregates/rank/index.md)
+  - [rank_asc](https://docs.relational.ai/api/python/v1.21/semantics/std/aggregates/rank_asc/index.md)
+  - [rank_desc](https://docs.relational.ai/api/python/v1.21/semantics/std/aggregates/rank_desc/index.md)
+  - [stddev_samp](https://docs.relational.ai/api/python/v1.21/semantics/std/aggregates/stddev_samp/index.md)
+  - [string_join](https://docs.relational.ai/api/python/v1.21/semantics/std/aggregates/string_join/index.md)
+  - [sum](https://docs.relational.ai/api/python/v1.21/semantics/std/aggregates/sum/index.md)
+  - [top](https://docs.relational.ai/api/python/v1.21/semantics/std/aggregates/top/index.md)
+
+- **common**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/semantics/std/common/index.md)
+  - [cast](https://docs.relational.ai/api/python/v1.21/semantics/std/common/cast/index.md)
+  - [hash](https://docs.relational.ai/api/python/v1.21/semantics/std/common/hash/index.md)
+  - [parse_uuid](https://docs.relational.ai/api/python/v1.21/semantics/std/common/parse_uuid/index.md)
+  - [range](https://docs.relational.ai/api/python/v1.21/semantics/std/common/range/index.md)
+  - [raw_source](https://docs.relational.ai/api/python/v1.21/semantics/std/common/raw_source/index.md)
+  - [uuid_to_string](https://docs.relational.ai/api/python/v1.21/semantics/std/common/uuid_to_string/index.md)
+
+- **constraints**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/semantics/std/constraints/index.md)
+  - [anyof](https://docs.relational.ai/api/python/v1.21/semantics/std/constraints/anyof/index.md)
+  - [exclusive](https://docs.relational.ai/api/python/v1.21/semantics/std/constraints/exclusive/index.md)
+  - [oneof](https://docs.relational.ai/api/python/v1.21/semantics/std/constraints/oneof/index.md)
+  - [unique](https://docs.relational.ai/api/python/v1.21/semantics/std/constraints/unique/index.md)
+
+- **datetime**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/semantics/std/datetime/index.md)
+  - [date](https://docs.relational.ai/api/python/v1.21/semantics/std/datetime/date_class/index.md)
+  - [DatePart](https://docs.relational.ai/api/python/v1.21/semantics/std/datetime/datepart/index.md)
+  - [datetime](https://docs.relational.ai/api/python/v1.21/semantics/std/datetime/datetime_class/index.md)
+  - [DateTimePart](https://docs.relational.ai/api/python/v1.21/semantics/std/datetime/datetimepart/index.md)
+  - [days](https://docs.relational.ai/api/python/v1.21/semantics/std/datetime/days/index.md)
+  - [Frequency](https://docs.relational.ai/api/python/v1.21/semantics/std/datetime/frequency/index.md)
+  - [hours](https://docs.relational.ai/api/python/v1.21/semantics/std/datetime/hours/index.md)
+  - [ISO](https://docs.relational.ai/api/python/v1.21/semantics/std/datetime/iso_class/index.md)
+  - [microseconds](https://docs.relational.ai/api/python/v1.21/semantics/std/datetime/microseconds/index.md)
+  - [milliseconds](https://docs.relational.ai/api/python/v1.21/semantics/std/datetime/milliseconds/index.md)
+  - [minutes](https://docs.relational.ai/api/python/v1.21/semantics/std/datetime/minutes/index.md)
+  - [months](https://docs.relational.ai/api/python/v1.21/semantics/std/datetime/months/index.md)
+  - [nanoseconds](https://docs.relational.ai/api/python/v1.21/semantics/std/datetime/nanoseconds/index.md)
+  - [seconds](https://docs.relational.ai/api/python/v1.21/semantics/std/datetime/seconds/index.md)
+  - [weeks](https://docs.relational.ai/api/python/v1.21/semantics/std/datetime/weeks/index.md)
+  - [years](https://docs.relational.ai/api/python/v1.21/semantics/std/datetime/years/index.md)
+- [DateTimeValue](https://docs.relational.ai/api/python/v1.21/semantics/std/datetimevalue/index.md)
+- [DateValue](https://docs.relational.ai/api/python/v1.21/semantics/std/datevalue/index.md)
+
+- **decimals**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/semantics/std/decimals/index.md)
+  - [decimal](https://docs.relational.ai/api/python/v1.21/semantics/std/decimals/decimal/index.md)
+  - [is_decimal](https://docs.relational.ai/api/python/v1.21/semantics/std/decimals/is_decimal/index.md)
+  - [parse](https://docs.relational.ai/api/python/v1.21/semantics/std/decimals/parse/index.md)
+  - [parse_decimal](https://docs.relational.ai/api/python/v1.21/semantics/std/decimals/parse_decimal/index.md)
+  - [precision](https://docs.relational.ai/api/python/v1.21/semantics/std/decimals/precision/index.md)
+  - [scale](https://docs.relational.ai/api/python/v1.21/semantics/std/decimals/scale/index.md)
+  - [size](https://docs.relational.ai/api/python/v1.21/semantics/std/decimals/size/index.md)
+
+- **floats**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/semantics/std/floats/index.md)
+  - [float](https://docs.relational.ai/api/python/v1.21/semantics/std/floats/float/index.md)
+  - [parse_float](https://docs.relational.ai/api/python/v1.21/semantics/std/floats/parse_float/index.md)
+- [FloatValue](https://docs.relational.ai/api/python/v1.21/semantics/std/floatvalue/index.md)
+
+- **integers**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/semantics/std/integers/index.md)
+  - [int64](https://docs.relational.ai/api/python/v1.21/semantics/std/integers/int64/index.md)
+  - [int128](https://docs.relational.ai/api/python/v1.21/semantics/std/integers/int128/index.md)
+  - [parse](https://docs.relational.ai/api/python/v1.21/semantics/std/integers/parse/index.md)
+  - [parse_int64](https://docs.relational.ai/api/python/v1.21/semantics/std/integers/parse_int64/index.md)
+  - [parse_int128](https://docs.relational.ai/api/python/v1.21/semantics/std/integers/parse_int128/index.md)
+- [IntegerValue](https://docs.relational.ai/api/python/v1.21/semantics/std/integervalue/index.md)
+
+- **math**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/semantics/std/math/index.md)
+  - [abs](https://docs.relational.ai/api/python/v1.21/semantics/std/math/abs/index.md)
+  - [acos](https://docs.relational.ai/api/python/v1.21/semantics/std/math/acos/index.md)
+  - [acosh](https://docs.relational.ai/api/python/v1.21/semantics/std/math/acosh/index.md)
+  - [acot](https://docs.relational.ai/api/python/v1.21/semantics/std/math/acot/index.md)
+  - [asin](https://docs.relational.ai/api/python/v1.21/semantics/std/math/asin/index.md)
+  - [asinh](https://docs.relational.ai/api/python/v1.21/semantics/std/math/asinh/index.md)
+  - [atan](https://docs.relational.ai/api/python/v1.21/semantics/std/math/atan/index.md)
+  - [atanh](https://docs.relational.ai/api/python/v1.21/semantics/std/math/atanh/index.md)
+  - [cbrt](https://docs.relational.ai/api/python/v1.21/semantics/std/math/cbrt/index.md)
+  - [ceil](https://docs.relational.ai/api/python/v1.21/semantics/std/math/ceil/index.md)
+  - [clip](https://docs.relational.ai/api/python/v1.21/semantics/std/math/clip/index.md)
+  - [cos](https://docs.relational.ai/api/python/v1.21/semantics/std/math/cos/index.md)
+  - [cosh](https://docs.relational.ai/api/python/v1.21/semantics/std/math/cosh/index.md)
+  - [cot](https://docs.relational.ai/api/python/v1.21/semantics/std/math/cot/index.md)
+  - [degrees](https://docs.relational.ai/api/python/v1.21/semantics/std/math/degrees/index.md)
+  - [erf](https://docs.relational.ai/api/python/v1.21/semantics/std/math/erf/index.md)
+  - [erfinv](https://docs.relational.ai/api/python/v1.21/semantics/std/math/erfinv/index.md)
+  - [exp](https://docs.relational.ai/api/python/v1.21/semantics/std/math/exp/index.md)
+  - [factorial](https://docs.relational.ai/api/python/v1.21/semantics/std/math/factorial/index.md)
+  - [floor](https://docs.relational.ai/api/python/v1.21/semantics/std/math/floor/index.md)
+  - [floor_divide](https://docs.relational.ai/api/python/v1.21/semantics/std/math/floor_divide/index.md)
+  - [haversine](https://docs.relational.ai/api/python/v1.21/semantics/std/math/haversine/index.md)
+  - [isclose](https://docs.relational.ai/api/python/v1.21/semantics/std/math/isclose/index.md)
+  - [isinf](https://docs.relational.ai/api/python/v1.21/semantics/std/math/isinf/index.md)
+  - [isnan](https://docs.relational.ai/api/python/v1.21/semantics/std/math/isnan/index.md)
+  - [log](https://docs.relational.ai/api/python/v1.21/semantics/std/math/log/index.md)
+  - [log2](https://docs.relational.ai/api/python/v1.21/semantics/std/math/log2/index.md)
+  - [log10](https://docs.relational.ai/api/python/v1.21/semantics/std/math/log10/index.md)
+  - [maximum](https://docs.relational.ai/api/python/v1.21/semantics/std/math/maximum/index.md)
+  - [minimum](https://docs.relational.ai/api/python/v1.21/semantics/std/math/minimum/index.md)
+  - [modulo](https://docs.relational.ai/api/python/v1.21/semantics/std/math/modulo/index.md)
+  - [natural_log](https://docs.relational.ai/api/python/v1.21/semantics/std/math/natural_log/index.md)
+  - [pow](https://docs.relational.ai/api/python/v1.21/semantics/std/math/pow/index.md)
+  - [radians](https://docs.relational.ai/api/python/v1.21/semantics/std/math/radians/index.md)
+  - [remainder](https://docs.relational.ai/api/python/v1.21/semantics/std/math/remainder/index.md)
+  - [round](https://docs.relational.ai/api/python/v1.21/semantics/std/math/round/index.md)
+  - [sign](https://docs.relational.ai/api/python/v1.21/semantics/std/math/sign/index.md)
+  - [sin](https://docs.relational.ai/api/python/v1.21/semantics/std/math/sin/index.md)
+  - [sinh](https://docs.relational.ai/api/python/v1.21/semantics/std/math/sinh/index.md)
+  - [sqrt](https://docs.relational.ai/api/python/v1.21/semantics/std/math/sqrt/index.md)
+  - [tan](https://docs.relational.ai/api/python/v1.21/semantics/std/math/tan/index.md)
+  - [tanh](https://docs.relational.ai/api/python/v1.21/semantics/std/math/tanh/index.md)
+  - [trunc_divide](https://docs.relational.ai/api/python/v1.21/semantics/std/math/trunc_divide/index.md)
+
+- **numbers**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/semantics/std/numbers/index.md)
+  - [digits_to_bits](https://docs.relational.ai/api/python/v1.21/semantics/std/numbers/digits_to_bits/index.md)
+  - [integer](https://docs.relational.ai/api/python/v1.21/semantics/std/numbers/integer/index.md)
+  - [is_number](https://docs.relational.ai/api/python/v1.21/semantics/std/numbers/is_number/index.md)
+  - [number](https://docs.relational.ai/api/python/v1.21/semantics/std/numbers/number/index.md)
+  - [parse](https://docs.relational.ai/api/python/v1.21/semantics/std/numbers/parse/index.md)
+  - [parse_number](https://docs.relational.ai/api/python/v1.21/semantics/std/numbers/parse_number/index.md)
+  - [precision](https://docs.relational.ai/api/python/v1.21/semantics/std/numbers/precision/index.md)
+  - [scale](https://docs.relational.ai/api/python/v1.21/semantics/std/numbers/scale/index.md)
+  - [size](https://docs.relational.ai/api/python/v1.21/semantics/std/numbers/size/index.md)
+- [NumberValue](https://docs.relational.ai/api/python/v1.21/semantics/std/numbervalue/index.md)
+
+- **re**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/semantics/std/re/index.md)
+  - [findall](https://docs.relational.ai/api/python/v1.21/semantics/std/re/findall/index.md)
+  - [fullmatch](https://docs.relational.ai/api/python/v1.21/semantics/std/re/fullmatch/index.md)
+  - [match](https://docs.relational.ai/api/python/v1.21/semantics/std/re/match/index.md)
+  - [RegexMatch](https://docs.relational.ai/api/python/v1.21/semantics/std/re/regexmatch_class/index.md)
+  - [search](https://docs.relational.ai/api/python/v1.21/semantics/std/re/search/index.md)
+  - [sub](https://docs.relational.ai/api/python/v1.21/semantics/std/re/sub/index.md)
+
+- **strings**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/semantics/std/strings/index.md)
+  - [concat](https://docs.relational.ai/api/python/v1.21/semantics/std/strings/concat/index.md)
+  - [contains](https://docs.relational.ai/api/python/v1.21/semantics/std/strings/contains/index.md)
+  - [endswith](https://docs.relational.ai/api/python/v1.21/semantics/std/strings/endswith/index.md)
+  - [join](https://docs.relational.ai/api/python/v1.21/semantics/std/strings/join/index.md)
+  - [len](https://docs.relational.ai/api/python/v1.21/semantics/std/strings/len/index.md)
+  - [levenshtein](https://docs.relational.ai/api/python/v1.21/semantics/std/strings/levenshtein/index.md)
+  - [like](https://docs.relational.ai/api/python/v1.21/semantics/std/strings/like/index.md)
+  - [lower](https://docs.relational.ai/api/python/v1.21/semantics/std/strings/lower/index.md)
+  - [regex_match](https://docs.relational.ai/api/python/v1.21/semantics/std/strings/regex_match/index.md)
+  - [replace](https://docs.relational.ai/api/python/v1.21/semantics/std/strings/replace/index.md)
+  - [split](https://docs.relational.ai/api/python/v1.21/semantics/std/strings/split/index.md)
+  - [split_part](https://docs.relational.ai/api/python/v1.21/semantics/std/strings/split_part/index.md)
+  - [startswith](https://docs.relational.ai/api/python/v1.21/semantics/std/strings/startswith/index.md)
+  - [string](https://docs.relational.ai/api/python/v1.21/semantics/std/strings/string/index.md)
+  - [strip](https://docs.relational.ai/api/python/v1.21/semantics/std/strings/strip/index.md)
+  - [substring](https://docs.relational.ai/api/python/v1.21/semantics/std/strings/substring/index.md)
+  - [upper](https://docs.relational.ai/api/python/v1.21/semantics/std/strings/upper/index.md)
+- [StringValue](https://docs.relational.ai/api/python/v1.21/semantics/std/stringvalue/index.md)
+- [union](https://docs.relational.ai/api/python/v1.21/semantics/union/index.md)
+- [where](https://docs.relational.ai/api/python/v1.21/semantics/where/index.md)
+
+#### services
+
+- [Overview](https://docs.relational.ai/api/python/v1.21/services/index.md)
+
+##### jobs
+
+- [Overview](https://docs.relational.ai/api/python/v1.21/services/jobs/index.md)
+- **client**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/services/jobs/client/index.md)
+  - [JobsClient](https://docs.relational.ai/api/python/v1.21/services/jobs/client/jobsclient_class/index.md)
+
+- **client_sync**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/services/jobs/client_sync/index.md)
+  - [JobsClientSync](https://docs.relational.ai/api/python/v1.21/services/jobs/client_sync/jobsclientsync_class/index.md)
+
+- **errors**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/services/jobs/errors/index.md)
+  - [JobCapabilityError](https://docs.relational.ai/api/python/v1.21/services/jobs/errors/jobcapabilityerror_class/index.md)
+  - [JobClientDisconnectedError](https://docs.relational.ai/api/python/v1.21/services/jobs/errors/jobclientdisconnectederror_class/index.md)
+  - [JobConfigurationError](https://docs.relational.ai/api/python/v1.21/services/jobs/errors/jobconfigurationerror_class/index.md)
+  - [JobError](https://docs.relational.ai/api/python/v1.21/services/jobs/errors/joberror_class/index.md)
+  - [JobInvalidRequestError](https://docs.relational.ai/api/python/v1.21/services/jobs/errors/jobinvalidrequesterror_class/index.md)
+  - [JobNotFoundError](https://docs.relational.ai/api/python/v1.21/services/jobs/errors/jobnotfounderror_class/index.md)
+  - [JobNotReadyError](https://docs.relational.ai/api/python/v1.21/services/jobs/errors/jobnotreadyerror_class/index.md)
+  - [JobServerError](https://docs.relational.ai/api/python/v1.21/services/jobs/errors/jobservererror_class/index.md)
+  - [JobTimeoutError](https://docs.relational.ai/api/python/v1.21/services/jobs/errors/jobtimeouterror_class/index.md)
+  - [JobUnknownError](https://docs.relational.ai/api/python/v1.21/services/jobs/errors/jobunknownerror_class/index.md)
+
+##### reasoners
+
+- [Overview](https://docs.relational.ai/api/python/v1.21/services/reasoners/index.md)
+- **client**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/services/reasoners/client/index.md)
+  - [ReasonersClient](https://docs.relational.ai/api/python/v1.21/services/reasoners/client/reasonersclient_class/index.md)
+
+- **client_sync**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/services/reasoners/client_sync/index.md)
+  - [ReasonersClientSync](https://docs.relational.ai/api/python/v1.21/services/reasoners/client_sync/reasonersclientsync_class/index.md)
+
+- **errors**
+  - [Overview](https://docs.relational.ai/api/python/v1.21/services/reasoners/errors/index.md)
+  - [ReasonerAuthError](https://docs.relational.ai/api/python/v1.21/services/reasoners/errors/reasonerautherror_class/index.md)
+  - [ReasonerConflictError](https://docs.relational.ai/api/python/v1.21/services/reasoners/errors/reasonerconflicterror_class/index.md)
+  - [ReasonerError](https://docs.relational.ai/api/python/v1.21/services/reasoners/errors/reasonererror_class/index.md)
+  - [ReasonerHttpError](https://docs.relational.ai/api/python/v1.21/services/reasoners/errors/reasonerhttperror_class/index.md)
+  - [ReasonerInvalidRequestError](https://docs.relational.ai/api/python/v1.21/services/reasoners/errors/reasonerinvalidrequesterror_class/index.md)
+  - [ReasonerNotFoundError](https://docs.relational.ai/api/python/v1.21/services/reasoners/errors/reasonernotfounderror_class/index.md)
+  - [ReasonerNotReadyError](https://docs.relational.ai/api/python/v1.21/services/reasoners/errors/reasonernotreadyerror_class/index.md)
+  - [ReasonerServerError](https://docs.relational.ai/api/python/v1.21/services/reasoners/errors/reasonerservererror_class/index.md)
+  - [ReasonerTimeoutError](https://docs.relational.ai/api/python/v1.21/services/reasoners/errors/reasonertimeouterror_class/index.md)
+  - [ReasonerUnknownError](https://docs.relational.ai/api/python/v1.21/services/reasoners/errors/reasonerunknownerror_class/index.md)
+  - [ReasonerValidationException](https://docs.relational.ai/api/python/v1.21/services/reasoners/errors/reasonervalidationexception_class/index.md)
+
+### CLI
+
+- [Overview](https://docs.relational.ai/api/cli/v1.21/index.md)
+
+#### clean
+
+- [Overview](https://docs.relational.ai/api/cli/v1.21/clean/index.md)
+- [cache](https://docs.relational.ai/api/cli/v1.21/clean/cache/index.md)
+- [debugger](https://docs.relational.ai/api/cli/v1.21/clean/debugger/index.md)
+- [commands](https://docs.relational.ai/api/cli/v1.21/commands/index.md)
+
+#### completion
+
+- [Overview](https://docs.relational.ai/api/cli/v1.21/completion/index.md)
+- [bash](https://docs.relational.ai/api/cli/v1.21/completion/bash/index.md)
+- [fish](https://docs.relational.ai/api/cli/v1.21/completion/fish/index.md)
+- [install](https://docs.relational.ai/api/cli/v1.21/completion/install/index.md)
+- [zsh](https://docs.relational.ai/api/cli/v1.21/completion/zsh/index.md)
+
+#### config
+
+- [Overview](https://docs.relational.ai/api/cli/v1.21/config/index.md)
+- [current](https://docs.relational.ai/api/cli/v1.21/config/current/index.md)
+- [explain](https://docs.relational.ai/api/cli/v1.21/config/explain/index.md)
+
+##### profiles
+
+- [Overview](https://docs.relational.ai/api/cli/v1.21/config/profiles/index.md)
+- [con](https://docs.relational.ai/api/cli/v1.21/config/profiles/con/index.md)
+- [use](https://docs.relational.ai/api/cli/v1.21/config/use/index.md)
+- [connect](https://docs.relational.ai/api/cli/v1.21/connect/index.md)
+- [debugger](https://docs.relational.ai/api/cli/v1.21/debugger/index.md)
+
+#### doctor
+
+- [Overview](https://docs.relational.ai/api/cli/v1.21/doctor/index.md)
+
+##### cache
+
+- [Overview](https://docs.relational.ai/api/cli/v1.21/doctor/cache/index.md)
+- [check](https://docs.relational.ai/api/cli/v1.21/doctor/cache/check/index.md)
+- [report](https://docs.relational.ai/api/cli/v1.21/doctor/report/index.md)
+- [init](https://docs.relational.ai/api/cli/v1.21/init/index.md)
+
+#### jobs
+
+- [Overview](https://docs.relational.ai/api/cli/v1.21/jobs/index.md)
+- [cancel](https://docs.relational.ai/api/cli/v1.21/jobs/cancel/index.md)
+- [create](https://docs.relational.ai/api/cli/v1.21/jobs/create/index.md)
+- [events](https://docs.relational.ai/api/cli/v1.21/jobs/events/index.md)
+- [get](https://docs.relational.ai/api/cli/v1.21/jobs/get/index.md)
+- [list](https://docs.relational.ai/api/cli/v1.21/jobs/list/index.md)
+- [wait](https://docs.relational.ai/api/cli/v1.21/jobs/wait/index.md)
+
+#### models
+
+- [Overview](https://docs.relational.ai/api/cli/v1.21/models/index.md)
+- [branch](https://docs.relational.ai/api/cli/v1.21/models/branch/index.md)
+- [deploy](https://docs.relational.ai/api/cli/v1.21/models/deploy/index.md)
+- [init](https://docs.relational.ai/api/cli/v1.21/models/init/index.md)
+- [list](https://docs.relational.ai/api/cli/v1.21/models/list/index.md)
+- [merge](https://docs.relational.ai/api/cli/v1.21/models/merge/index.md)
+- [pull](https://docs.relational.ai/api/cli/v1.21/models/pull/index.md)
+- [switch](https://docs.relational.ai/api/cli/v1.21/models/switch/index.md)
+- [teardown](https://docs.relational.ai/api/cli/v1.21/models/teardown/index.md)
+
+#### reasoners
+
+- [Overview](https://docs.relational.ai/api/cli/v1.21/reasoners/index.md)
+- [alter](https://docs.relational.ai/api/cli/v1.21/reasoners/alter/index.md)
+- [create](https://docs.relational.ai/api/cli/v1.21/reasoners/create/index.md)
+- [delete](https://docs.relational.ai/api/cli/v1.21/reasoners/delete/index.md)
+- [get](https://docs.relational.ai/api/cli/v1.21/reasoners/get/index.md)
+- [list](https://docs.relational.ai/api/cli/v1.21/reasoners/list/index.md)
+- [resume](https://docs.relational.ai/api/cli/v1.21/reasoners/resume/index.md)
+- [sizes](https://docs.relational.ai/api/cli/v1.21/reasoners/sizes/index.md)
+- [suspend](https://docs.relational.ai/api/cli/v1.21/reasoners/suspend/index.md)
+- [wait](https://docs.relational.ai/api/cli/v1.21/reasoners/wait/index.md)
+- [version](https://docs.relational.ai/api/cli/v1.21/version/index.md)
+- [whoami](https://docs.relational.ai/api/cli/v1.21/whoami/index.md)
+
+### SQL
+
+## Release Notes
+
+- [Overview](https://docs.relational.ai/release-notes/index.md)
+
+### Python API
+
+- [Overview](https://docs.relational.ai/release-notes/python/index.md)
+- [1.21.4](https://docs.relational.ai/release-notes/python/1.21.4/index.md)
+- [1.21.3](https://docs.relational.ai/release-notes/python/1.21.3/index.md)
+- [1.21.2](https://docs.relational.ai/release-notes/python/1.21.2/index.md)
+- [1.21.1](https://docs.relational.ai/release-notes/python/1.21.1/index.md)
+- [1.21.0](https://docs.relational.ai/release-notes/python/1.21.0/index.md)
+- [1.20.1](https://docs.relational.ai/release-notes/python/1.20.1/index.md)
+- [1.20.0](https://docs.relational.ai/release-notes/python/1.20.0/index.md)
+- [1.19.4](https://docs.relational.ai/release-notes/python/1.19.4/index.md)
+- [1.19.3](https://docs.relational.ai/release-notes/python/1.19.3/index.md)
+- [1.19.2](https://docs.relational.ai/release-notes/python/1.19.2/index.md)
+- [1.19.1](https://docs.relational.ai/release-notes/python/1.19.1/index.md)
+- [1.19.0](https://docs.relational.ai/release-notes/python/1.19.0/index.md)
+- [1.18.0](https://docs.relational.ai/release-notes/python/1.18.0/index.md)
+- [1.17.0](https://docs.relational.ai/release-notes/python/1.17.0/index.md)
+- [1.16.0](https://docs.relational.ai/release-notes/python/1.16.0/index.md)
+- [1.15.0](https://docs.relational.ai/release-notes/python/1.15.0/index.md)
+- [1.14.0](https://docs.relational.ai/release-notes/python/1.14.0/index.md)
+- [1.13.0](https://docs.relational.ai/release-notes/python/1.13.0/index.md)
+- [1.12.0](https://docs.relational.ai/release-notes/python/1.12.0/index.md)
+- [1.11.0](https://docs.relational.ai/release-notes/python/1.11.0/index.md)
+- [1.10.0](https://docs.relational.ai/release-notes/python/1.10.0/index.md)
+- [1.9.0](https://docs.relational.ai/release-notes/python/1.9.0/index.md)
+- [1.8.1](https://docs.relational.ai/release-notes/python/1.8.1/index.md)
+- [1.8.0](https://docs.relational.ai/release-notes/python/1.8.0/index.md)
+- [1.7.1](https://docs.relational.ai/release-notes/python/1.7.1/index.md)
+- [1.7.0](https://docs.relational.ai/release-notes/python/1.7.0/index.md)
+- [1.6.0](https://docs.relational.ai/release-notes/python/1.6.0/index.md)
+- [1.5.0](https://docs.relational.ai/release-notes/python/1.5.0/index.md)
+- [1.4.2](https://docs.relational.ai/release-notes/python/1.4.2/index.md)
+- [1.4.1](https://docs.relational.ai/release-notes/python/1.4.1/index.md)
+- [1.3.1](https://docs.relational.ai/release-notes/python/1.3.1/index.md)
+- [1.3.0](https://docs.relational.ai/release-notes/python/1.3.0/index.md)
+- [1.2.2](https://docs.relational.ai/release-notes/python/1.2.2/index.md)
+- [1.2.1](https://docs.relational.ai/release-notes/python/1.2.1/index.md)
+- [1.2.0](https://docs.relational.ai/release-notes/python/1.2.0/index.md)
+- [1.1.1](https://docs.relational.ai/release-notes/python/1.1.1/index.md)
+- [1.1.0](https://docs.relational.ai/release-notes/python/1.1.0/index.md)
+- [1.0.19](https://docs.relational.ai/release-notes/python/1.0.19/index.md)
+- [1.0.18](https://docs.relational.ai/release-notes/python/1.0.18/index.md)
+- [1.0.17](https://docs.relational.ai/release-notes/python/1.0.17/index.md)
+- [1.0.16](https://docs.relational.ai/release-notes/python/1.0.16/index.md)
+- [1.0.15](https://docs.relational.ai/release-notes/python/1.0.15/index.md)
+- [1.0.14](https://docs.relational.ai/release-notes/python/1.0.14/index.md)
+- [1.0.13](https://docs.relational.ai/release-notes/python/1.0.13/index.md)
+- [1.0.12](https://docs.relational.ai/release-notes/python/1.0.12/index.md)
+- [1.0.11](https://docs.relational.ai/release-notes/python/1.0.11/index.md)
+- [1.0.10](https://docs.relational.ai/release-notes/python/1.0.10/index.md)
+- [1.0.9](https://docs.relational.ai/release-notes/python/1.0.9/index.md)
+- [1.0.8](https://docs.relational.ai/release-notes/python/1.0.8/index.md)
+- [1.0.7](https://docs.relational.ai/release-notes/python/1.0.7/index.md)
+- [1.0.6](https://docs.relational.ai/release-notes/python/1.0.6/index.md)
+- [1.0.5](https://docs.relational.ai/release-notes/python/1.0.5/index.md)
+- [1.0.4](https://docs.relational.ai/release-notes/python/1.0.4/index.md)
+- [1.0.3](https://docs.relational.ai/release-notes/python/1.0.3/index.md)
+- [1.0.2](https://docs.relational.ai/release-notes/python/1.0.2/index.md)
+- [1.0.1](https://docs.relational.ai/release-notes/python/1.0.1/index.md)
+- [1.0.0](https://docs.relational.ai/release-notes/python/1.0.0/index.md)
+
+### RAI Native App
+
+- [Overview](https://docs.relational.ai/release-notes/native-app/index.md)
+- [2026.7.13-470c23f](https://docs.relational.ai/release-notes/native-app/2026.7.13-470c23f/index.md)
+- [2026.7.3-57280fc](https://docs.relational.ai/release-notes/native-app/2026.7.3-57280fc/index.md)
+- [2026.6.29-a85c9fc](https://docs.relational.ai/release-notes/native-app/2026.6.29-a85c9fc/index.md)
+- [2026.6.22-cd93f88](https://docs.relational.ai/release-notes/native-app/2026.6.22-cd93f88/index.md)
+- [2026.6.14-4f4ec3d](https://docs.relational.ai/release-notes/native-app/2026.6.14-4f4ec3d/index.md)
+- [2026.6.7-1a518f4-1](https://docs.relational.ai/release-notes/native-app/2026.6.7-1a518f4-1/index.md)
+- [2026.6.1-38f8bad-1](https://docs.relational.ai/release-notes/native-app/2026.6.1-38f8bad-1/index.md)
+- [2026.5.24-a67d5bb](https://docs.relational.ai/release-notes/native-app/2026.5.24-a67d5bb/index.md)
+- [2026.5.17-26db430-1](https://docs.relational.ai/release-notes/native-app/2026.5.17-26db430-1/index.md)
+- [2026.5.11-57723fa](https://docs.relational.ai/release-notes/native-app/2026.5.11-57723fa/index.md)
+- [2026.5.4-535f669-2](https://docs.relational.ai/release-notes/native-app/2026.5.4-535f669-2/index.md)
+- [2026.4.27-2ba1778](https://docs.relational.ai/release-notes/native-app/2026.4.27-2ba1778/index.md)
+- [2026.4.19-001506c-3](https://docs.relational.ai/release-notes/native-app/2026.4.19-001506c-3/index.md)
+- [2026.4.13-d558733](https://docs.relational.ai/release-notes/native-app/2026.4.13-d558733/index.md)
+- [2026.4.6-dde787d](https://docs.relational.ai/release-notes/native-app/2026.4.6-dde787d/index.md)
+- [2026.3.29-58b69bc](https://docs.relational.ai/release-notes/native-app/2026.3.29-58b69bc/index.md)
+- [2026.3.29-58b69bc-1](https://docs.relational.ai/release-notes/native-app/2026.3.29-58b69bc-1/index.md)
+- [2026.3.23-7c6ad4c-1](https://docs.relational.ai/release-notes/native-app/2026.3.23-7c6ad4c-1/index.md)
+- [2026.3.16-75ea12b-1](https://docs.relational.ai/release-notes/native-app/2026.3.16-75ea12b-1/index.md)
+- [2026.3.9-4685f01-1](https://docs.relational.ai/release-notes/native-app/2026.3.9-4685f01-1/index.md)
+- [2026.3.2-62ce088](https://docs.relational.ai/release-notes/native-app/2026.3.2-62ce088/index.md)
+- [2026.2.23-91bdaf5-1](https://docs.relational.ai/release-notes/native-app/2026.2.23-91bdaf5-1/index.md)
+- [2026.2.17-f9af1b6](https://docs.relational.ai/release-notes/native-app/2026.2.17-f9af1b6/index.md)
+- [2026.2.8-e6a1f8a](https://docs.relational.ai/release-notes/native-app/2026.2.8-e6a1f8a/index.md)
+- [2026.2.2-51ae489](https://docs.relational.ai/release-notes/native-app/2026.2.2-51ae489/index.md)
+- [2026.1.26-ba18c9d-2](https://docs.relational.ai/release-notes/native-app/2026.1.26-ba18c9d-2/index.md)
+- [2026.1.17-e94e8cc-6](https://docs.relational.ai/release-notes/native-app/2026.1.17-e94e8cc-6/index.md)
+- [2026.1.11-d4d9cef](https://docs.relational.ai/release-notes/native-app/2026.1.11-d4d9cef/index.md)
+- [2026.1.4-301050f](https://docs.relational.ai/release-notes/native-app/2026.1.4-301050f/index.md)
+
+### Feature Information
+
+- [Overview](https://docs.relational.ai/release-notes/index.md)
+- [Preview Features](https://docs.relational.ai/release-notes/preview-features/index.md): Learn about RelationalAI preview features, their availability, and how to request access for testing and evaluation purposes.
