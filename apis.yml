@@ -52,7 +52,7 @@ tags:
 - Semantic Layer
 - Snowflake
 - Graph Analytics
-- Machine-Learning
+- Machine Learning
 - Optimization
 - Reasoning
 - Artificial Intelligence
@@ -67,6 +67,7 @@ tags_raw:
 - Optimization
 - Reasoning
 - AI
+- Machine-Learning
 apis: []
 maintainers:
 - FN: Kin Lane
