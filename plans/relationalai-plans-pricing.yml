@@ -1,0 +1,49 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-07'
+method: searched
+source: https://www.relational.ai/pricing
+sources:
+- https://www.relational.ai/pricing
+- https://relational.ai/pricing
+provenance:
+  tool: all/0-working/economics/harvest_pricing.py
+  run: 20261007T104522
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: usage-other
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-07'
+published: true
+note: Consumption-based pricing metered in Rel Units, billed hourly by compute instance type. Page also
+  contains unrelated placeholder template plans with lorem ipsum text ($12.00/$16.00/$24.00 per Month)
+  which appear to be unfinished boilerplate, so they are excluded.
+plan_count: 4
+currency: USD
+plans:
+- name: Standard
+  price_text: $2.00 / Rel Unit (USD)
+  price: 2
+  currency: USD
+  period: per-use
+  unit: Rel Unit
+  included_quota: Semantic Model, Natural Language Reasoning
+- name: Enterprise
+  price_text: $3.00 / Rel Unit (USD)
+  price: 3
+  currency: USD
+  period: per-use
+  unit: Rel Unit
+  included_quota: Early access environment, Query acceleration, Prescriptive reasoning
+- name: Business Critical
+  price_text: $4.00 / Rel Unit (USD)
+  price: 4
+  currency: USD
+  period: per-use
+  unit: Rel Unit
+  included_quota: Customer-managed keys (tri-secret secure), Private connectivity
+- name: Virtual Private
+  price_text: Contact sales
+  period: none
+  included_quota: Everything in Business Critical, Complete isolation
