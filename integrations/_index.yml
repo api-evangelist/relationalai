@@ -15,3 +15,54 @@
   relationship: distribution-channel
   status: not-a-workflow
   arazzo: null
+- slug: relationalai-npm-registry
+  label: npm registry
+  partner: npm
+  partner_name: npm registry
+  category: official SDK (JavaScript/TypeScript)
+  type: register
+  channel: package-registry
+  evidence: https://www.npmjs.com/package/@relationalai/rai-sdk-javascript
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: '@relationalai/rai-sdk-javascript'
+      version: 0.7.9-alpha
+      released: '2026-07-31'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@relationalai/rai-sdk-javascript
+      repo_leg: github-org:relationalai
+      publisher_leg: email:relational.ai
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: relationalai-agent-skills-own-github-org
+  label: Agent Skills (own GitHub org)
+  partner_name: Agent Skills (own GitHub org)
+  category: Agent Skills package
+  type: register
+  channel: provider-built
+  evidence: https://github.com/RelationalAI/rai-agent-skills
+  source: edge
+  relationship: compatible
+  contract_reference:
+    register: 'provider''s own GitHub org (GitHub REST API: repo + git tree holds SKILL.md)'
+    spec_file: null
+    standard: Agent Skills (agentskills.io)
+    role: agent-skills-repo
+    matched_org: relationalai
+    matched_by: org-profile-domain:relational.ai
+    detected_by: sweep-agent-skills.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
